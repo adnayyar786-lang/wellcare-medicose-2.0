@@ -38,3 +38,23 @@ body{background:
 @media(max-width:560px){.dashboardHero{display:block}.dashboardPills{text-align:left;margin-top:15px}.dashGrid{grid-template-columns:1fr 1fr}.quickActions{grid-template-columns:1fr}.moduleGrid{grid-template-columns:1fr}.portalNav{border-radius:12px}}
 
 .moduleTable{display:flex;flex-direction:column}.moduleRow{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:14px 19px;border-bottom:1px solid #eef2ef}.moduleRow b,.moduleRow small{display:block}.moduleRow small{font-size:10px;color:#7b857f;margin-top:4px}.moduleRow strong{font-size:13px}@media(max-width:560px){.moduleRow{grid-template-columns:1fr auto}.moduleRow .statusBadge{grid-column:2;grid-row:1}.moduleRow>span:not(.statusBadge){font-size:10px}}
+
+.detailsBtn{margin-left:auto!important;font-size:11px!important;padding:8px 11px!important}
+.orderDetailModal{max-width:760px;width:min(92vw,760px);max-height:88vh;overflow:auto}
+.detailHead{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;border-bottom:1px solid #edf1ee;padding-bottom:14px}
+.detailHead span,.detailGrid small{font-size:10px;letter-spacing:.08em;color:#7a857e}
+.detailHead h2{margin:5px 0 0}
+.detailHead>button{border:1px solid #dce5df;background:#fff;border-radius:9px;padding:8px 12px}
+.detailGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.detailGrid>div{background:#f7faf8;border:1px solid #e7eee9;border-radius:11px;padding:12px}
+.detailGrid b,.detailGrid span{display:block;margin-top:5px}
+.detailGrid span{font-size:11px;color:#738078}
+.detailAddress{padding:13px;background:#fff;border:1px solid #e7eee9;border-radius:11px;display:flex;flex-direction:column;gap:6px}
+.detailAddress span{font-size:12px;color:#66736b;word-break:break-word}
+.detailItems{border:1px solid #e7eee9;border-radius:11px;overflow:hidden}
+.detailItems>div{display:grid;grid-template-columns:1fr auto auto;gap:18px;padding:12px;border-bottom:1px solid #eef2ef}
+.detailItems>div:last-child{border-bottom:0}
+.detailItems small{display:block;color:#7b857f;font-size:10px;margin-top:3px}
+.rxFlag{margin-top:14px;padding:12px;border-radius:10px;background:#fff8e8;border:1px solid #f1dfae;display:flex;align-items:center;gap:8px}
+.rxFlag button{margin-left:auto;border:0;background:#fff;padding:7px 10px;border-radius:8px}
+@media(max-width:650px){.detailGrid{grid-template-columns:1fr 1fr}.detailItems>div{grid-template-columns:1fr auto}.detailItems strong{grid-column:2}.detailsBtn{grid-column:1/-1!important;margin-left:0!important}.orderDetailModal{padding:16px}}
