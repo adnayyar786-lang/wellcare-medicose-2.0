@@ -943,3 +943,14 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
   }
   main{position:relative!important;z-index:0!important;margin-top:0!important}
 }
+
+
+/* SECTION 4 — DEDICATED SECTION PANELS */
+.dedicatedSectionPanel{background:#fbfdfc!important}
+.dedicatedSectionHero{display:flex;align-items:center;gap:12px;padding:15px;margin-bottom:12px;border:1px solid #dce9e3;border-radius:16px;background:linear-gradient(135deg,#f1faf6,#f7fbff)}
+.dedicatedSectionIcon{width:48px;height:48px;flex:0 0 48px;border-radius:14px;display:grid;place-items:center;background:#fff;border:1px solid #dce9e3;font-size:23px;box-shadow:0 5px 16px rgba(20,70,50,.07)}
+.dedicatedSectionHero div:nth-child(2){min-width:0;flex:1}.dedicatedSectionHero b,.dedicatedSectionHero span{display:block}.dedicatedSectionHero b{font-size:15px;color:#17372e}.dedicatedSectionHero span{font-size:10px;color:#71827a;margin-top:4px;line-height:1.4}.dedicatedSectionHero>strong{min-width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#087a5e;color:#fff;font-size:11px}
+.sectionToolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px;padding:0 2px}.sectionToolbar span{font-size:10px;color:#75847d;font-weight:800}.sectionToolbar button{border:1px solid #d6e4de;background:#fff;border-radius:9px;padding:7px 10px;color:#087a5e;font-size:9px;font-weight:900;cursor:pointer}
+.brandSectionPanel .dedicatedSectionHero{background:linear-gradient(135deg,#fff9ec,#f7fbff)}
+.careSectionPanel .dedicatedSectionHero{background:linear-gradient(135deg,#f8f3ff,#f2faf7)}
+@media(max-width:700px){.dedicatedSectionHero{padding:12px;border-radius:14px}.dedicatedSectionIcon{width:42px;height:42px;flex-basis:42px;font-size:20px}.dedicatedSectionHero b{font-size:13px}.dedicatedSectionHero span{font-size:9px}.sectionToolbar{margin-bottom:8px}}
