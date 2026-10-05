@@ -329,3 +329,151 @@ header .top{position:relative;z-index:60;min-height:70px}
 }
 /* Keep customer overlays above every header/product layer */
 .drawerBackdrop{z-index:9990!important}.sideDrawer{z-index:10000!important}.panelOverlay{z-index:11000!important}.mobileBottom{z-index:9000!important}
+
+
+/* PRODUCT CARD STABILITY PATCH — requested medicine-card sizing only; preserve existing storefront */
+.productImg{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  height:150px!important;
+  min-height:150px!important;
+  max-height:150px!important;
+  margin:0 0 13px!important;
+  padding:0!important;
+  border:1px solid #dfe9e4!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  background:linear-gradient(145deg,#f5faf8,#f1f7fb)!important;
+  line-height:0!important;
+  font-size:0!important;
+  text-align:center!important;
+}
+.productImageInner{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:none!important;
+  max-height:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  padding:8px!important;
+  box-sizing:border-box!important;
+}
+.productImageInner img{
+  position:static!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+}
+.productImageInner:not(:has(img)){
+  font-size:46px!important;
+  line-height:1!important;
+}
+.product{
+  min-width:0!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.product h3{
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:2!important;
+}
+.brands{
+  display:flex!important;
+  align-items:stretch!important;
+  gap:10px!important;
+  overflow-x:auto!important;
+  padding:2px 1px 7px!important;
+  scrollbar-width:none!important;
+}
+.brands button{
+  min-width:142px!important;
+  width:142px!important;
+  height:58px!important;
+  flex:0 0 142px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  padding:8px 11px!important;
+  box-sizing:border-box!important;
+  border:1px solid #dce7e2!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  color:var(--wc-deep)!important;
+  font-size:12px!important;
+  font-weight:850!important;
+  line-height:1.15!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+}
+.brandMini{
+  width:32px!important;
+  height:32px!important;
+  min-width:32px!important;
+  flex:0 0 32px!important;
+  margin:0!important;
+  border-radius:10px!important;
+  display:inline-grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  background:linear-gradient(135deg,#e9f6f0,#eaf3fa)!important;
+  border:1px solid #d7e6e0!important;
+  color:var(--wc-blue)!important;
+  font-size:9px!important;
+  font-weight:950!important;
+  letter-spacing:.2px!important;
+}
+@media(max-width:700px){
+  .productImg{
+    height:140px!important;
+    min-height:140px!important;
+    max-height:140px!important;
+    margin-bottom:10px!important;
+  }
+  .productImageInner{padding:7px!important}
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:9px!important;
+  }
+  .product{padding:10px!important;border-radius:14px!important}
+  .brands button{
+    min-width:138px!important;
+    width:138px!important;
+    flex-basis:138px!important;
+    height:56px!important;
+    padding:7px 9px!important;
+  }
+  .brandMini{
+    width:30px!important;
+    height:30px!important;
+    min-width:30px!important;
+    flex-basis:30px!important;
+  }
+}
+@media(max-width:390px){
+  .productImg{
+    height:132px!important;
+    min-height:132px!important;
+    max-height:132px!important;
+  }
+}
