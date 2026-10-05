@@ -22,3 +22,67 @@
 .wcSearchEmpty{padding:30px 20px;display:flex;align-items:center;justify-content:center;gap:10px;color:#687870}.wcSearchEmpty svg{color:#087a5e}.wcSearchEmpty b,.wcSearchEmpty span{display:block}.wcSearchEmpty b{color:#29483e;font-size:13px}.wcSearchEmpty span{font-size:10px;margin-top:3px}
 @media(max-width:850px){.wcSearchResultList{grid-template-columns:1fr}.wcSearchResult{grid-template-columns:68px minmax(0,1fr) 18px}.wcSearchResultImage{width:68px;height:68px}.wcSearchDeliveryStrip{align-items:flex-start;flex-direction:column}.wcEtaChips{justify-content:flex-start}}
 @media(max-width:700px){.wcSearchExperience{width:100%;margin:0;border-radius:0 0 17px 17px}.wcSearchPanelHead{padding:14px 13px 11px}.wcSearchPanelHead h3{font-size:15px}.wcSearchPanelHead p{font-size:9px}.wcSearchResultList{padding:10px 11px;gap:8px}.wcSearchResult{padding:8px;border-radius:13px}.wcSearchResultInfo>b{font-size:11px}.wcSearchDeliveryStrip{padding:10px 12px}.wcEtaChips{width:100%}.wcEtaChips span{font-size:8px;padding:6px 8px}}
+
+
+/* SEARCH SUGGESTION IMAGE OVERLAP FIX — keep product image inside its grid cell */
+.wcSearchExperience{position:relative!important;z-index:200!important;overflow:visible!important;isolation:isolate!important}
+.wcSearchResultList{position:relative!important;z-index:1!important;overflow:visible!important}
+.wcSearchResult{position:relative!important;z-index:1!important;overflow:hidden!important;min-height:96px!important;box-sizing:border-box!important}
+.wcSearchResult:hover{z-index:2!important}
+.wcSearchResultImage{
+  position:relative!important;
+  z-index:1!important;
+  width:76px!important;
+  height:76px!important;
+  min-width:76px!important;
+  max-width:76px!important;
+  min-height:76px!important;
+  max-height:76px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.wcSearchResultImage .productImageInner{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:5px!important;
+  margin:0!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.wcSearchResultImage .productImageInner img{
+  position:static!important;
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+  padding:0!important;
+}
+.wcSearchResultInfo{position:relative!important;z-index:2!important;min-width:0!important;overflow:hidden!important}
+.wcSearchResultInfo>b,.wcSearchResultInfo>p,.wcSearchResultInfo>small{overflow:hidden!important;text-overflow:ellipsis!important}
+@media(max-width:850px){
+ .wcSearchResultImage{width:68px!important;height:68px!important;min-width:68px!important;max-width:68px!important;min-height:68px!important;max-height:68px!important}
+}
+@media(max-width:700px){
+ .wcSearchExperience{z-index:200!important;overflow:visible!important}
+ .wcSearchResult{min-height:84px!important}
+ .wcSearchResultImage{width:62px!important;height:62px!important;min-width:62px!important;max-width:62px!important;min-height:62px!important;max-height:62px!important}
+ .wcSearchResultImage .productImageInner{padding:4px!important}
+}
