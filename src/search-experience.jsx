@@ -5,11 +5,34 @@ export default function SearchExperience({search,products,imageRenderer,onOpen,o
  const q=search.trim().toLowerCase();
  const results=useMemo(()=>{
   if(!q)return[];
-  const all=products.filter(p=>norm(p).includes(q));
-  const exact=all.filter(p=>(p.n||"").toLowerCase().startsWith(q));
-  const salt=all.filter(p=>!exact.includes(p)&&p.salt&&p.salt.toLowerCase().includes(q));
-  const brand=all.filter(p=>!exact.includes(p)&&!salt.includes(p));
-  return[...exact,...salt,...brand].slice(0,6);
+  const clean=s=>(s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+  const terms=q.split(/\s+/).filter(Boolean);
+  const human=p=>!/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase());
+  const score=p=>{
+    const n=clean(p.n),b=clean(p.b),s=clean(p.salt),c=clean(p.c);
+    let v=0;
+    if(n===q)v+=1000;
+    if(n.startsWith(q))v+=700;
+    if(n.split(" ").some(t=>t.startsWith(q)))v+=450;
+    if(n.includes(q))v+=280;
+    if(b===q||b.startsWith(q))v+=220;
+    if(b.includes(q))v+=100;
+    if(s.includes(q))v+=160;
+    if(c.includes(q))v+=70;
+    if(terms.every(t=>n.includes(t)))v+=180;
+    if(terms.every(t=>(n+" "+b+" "+s+" "+c).includes(t)))v+=60;
+    return v;
+  };
+  const pool=products.filter(human);
+  const matches=pool.map(p=>({...p,_score:score(p)})).filter(p=>p._score>0).sort((a,b)=>b._score-a._score);
+  const primary=matches[0];
+  const sameSalt=primary?.salt?pool.filter(p=>p.id!==primary.id&&p.salt&&p.salt.toLowerCase()===primary.salt.toLowerCase()).sort((a,b)=>score(b)-score(a)):[];
+  const related=matches.filter(p=>p.id!==primary?.id&&!sameSalt.some(x=>x.id===p.id));
+  const out=[];
+  if(primary)out.push({...primary,_kind:"EXACT"});
+  for(const p of sameSalt)if(out.length<6)out.push({...p,_kind:"SAME COMPOSITION"});
+  for(const p of related)if(out.length<6)out.push({...p,_kind:p.b&&primary&&p.b.toLowerCase()===primary.b?.toLowerCase()?"SAME BRAND":"RELATED PRODUCT"});
+  return out.slice(0,6);
  },[q,products]);
  if(!q)return null;
  return <div className="wcSearchExperience">
