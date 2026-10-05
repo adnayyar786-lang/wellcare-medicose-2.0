@@ -86,3 +86,30 @@
 @media(max-width:390px){
   .wcHome .wcProductMedia{height:130px!important;min-height:130px!important;max-height:130px!important}
 }
+
+
+/* DEDICATED MEDICINE DETAIL EXPERIENCE */
+.wcProductDetailView{width:100%;min-width:0;background:#fff;border:1px solid #dce8e3;border-radius:24px;overflow:hidden;box-shadow:0 10px 35px rgba(20,60,45,.07)}
+.wcDetailTop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid #e5ede9;background:#fbfdfc}
+.wcDetailTop>span{font-size:10px;letter-spacing:1.6px;font-weight:900;color:#087a5e}
+.wcBackButton{border:1px solid #d7e5df;background:#fff;border-radius:10px;padding:9px 12px;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:#29483e;cursor:pointer}
+.wcDetailMain{display:grid;grid-template-columns:minmax(300px,420px) minmax(0,1fr);gap:34px;padding:28px}
+.wcDetailImage{height:390px;border-radius:20px;background:linear-gradient(145deg,#f3f8f6,#eef6fb);border:1px solid #dfe9e4;display:grid;place-items:center;overflow:hidden;position:relative}
+.wcDetailImage>div{width:100%!important;height:100%!important;display:grid!important;place-items:center!important;padding:24px!important;box-sizing:border-box!important;overflow:hidden!important}
+.wcDetailImage img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
+.wcDetailInfo{align-self:center;min-width:0}
+.wcDetailBrand{display:inline-flex;padding:6px 10px;border-radius:999px;background:#eaf6f1;color:#087a5e;font-size:10px;font-weight:900}
+.wcDetailInfo h1{font-size:34px;line-height:1.12;margin:13px 0 8px;color:#132f28}
+.wcDetailSalt{font-size:14px;color:#64766e;line-height:1.5;margin:0}
+.wcDetailRating{margin:16px 0 10px;color:#a36d0a;font-size:13px;font-weight:900}.wcDetailRating span{color:#7b8983;font-weight:600;margin-left:8px}
+.wcDetailPrice{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:12px 0}.wcDetailPrice b{font-size:30px;color:#132f28}.wcDetailPrice del{font-size:14px;color:#9aa59f}.wcDetailPrice em{font-style:normal;background:#e7f6ef;color:#087a5e;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:900}
+.wcRxNotice{padding:10px 12px;border:1px solid #f0d8b2;background:#fff8ec;color:#8a5c18;border-radius:10px;font-size:11px;font-weight:800;margin:12px 0}
+.wcDetailFacts{display:grid;gap:7px;margin:14px 0;color:#4e6c61;font-size:12px}
+.wcDetailActions{display:flex;gap:9px;margin-top:18px}.wcDetailAdd{flex:1;border:0;border-radius:11px;background:#087a5e;color:#fff;padding:13px 16px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}.wcDetailAdd:disabled{opacity:.55;cursor:not-allowed}
+.wcDetailWish{width:48px;border:1px solid #d5e4de;background:#fff;border-radius:11px;color:#63766d;display:grid;place-items:center;cursor:pointer}.wcDetailWish.liked{color:#087a5e;background:#eff8f4}
+.wcDetailInfoBlock{padding:22px 28px;border-top:1px solid #e4ece8;background:#fbfdfc}.wcDetailInfoBlock h2{margin:5px 0 8px;color:#18352e;font-size:20px}.wcDetailInfoBlock p{max-width:850px;color:#64766e;line-height:1.55;font-size:13px}
+.wcInfoGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}.wcInfoGrid>div{padding:12px;border:1px solid #dfe9e4;background:#fff;border-radius:12px}.wcInfoGrid b,.wcInfoGrid span{display:block}.wcInfoGrid b{font-size:9px;color:#7a8982;text-transform:uppercase;letter-spacing:.8px}.wcInfoGrid span{margin-top:5px;font-size:11px;color:#29483e;font-weight:800}
+.wcRelatedDetail{padding:24px 28px;border-top:1px solid #e4ece8}.wcRelatedGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.wcRelatedCard{display:grid;grid-template-columns:72px 1fr 17px;align-items:center;gap:9px;text-align:left;border:1px solid #dfe9e4;background:#fff;border-radius:14px;padding:9px;cursor:pointer;min-width:0}.wcRelatedCard:hover{border-color:#087a5e;box-shadow:0 8px 22px rgba(20,70,50,.08)}.wcRelatedImage{height:72px;width:72px;border-radius:10px;background:#f3f8f6;display:grid;place-items:center;overflow:hidden}.wcRelatedImage>div{width:100%!important;height:100%!important;display:grid!important;place-items:center!important;padding:5px!important;box-sizing:border-box!important;overflow:hidden!important}.wcRelatedImage img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}.wcRelatedText{min-width:0}.wcRelatedText small,.wcRelatedText b,.wcRelatedText span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wcRelatedText small{font-size:8px;color:#7a8982}.wcRelatedText b{font-size:11px;color:#233d35;margin-top:4px}.wcRelatedText span{font-size:13px;color:#087a5e;font-weight:900;margin-top:5px}.wcNoRelated{padding:16px;border:1px dashed #cddcd5;border-radius:12px;color:#718078;font-size:12px}
+@media(max-width:900px){.wcDetailMain{grid-template-columns:280px 1fr;gap:20px;padding:20px}.wcDetailImage{height:310px}.wcDetailInfo h1{font-size:28px}.wcRelatedGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.wcInfoGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.wcProductDetailView{border-radius:16px}.wcDetailTop{padding:12px 13px}.wcDetailTop>span{font-size:8px}.wcBackButton{padding:8px 10px;font-size:11px}.wcDetailMain{grid-template-columns:1fr;gap:16px;padding:14px}.wcDetailImage{height:245px}.wcDetailInfo h1{font-size:24px;margin-top:10px}.wcDetailSalt{font-size:12px}.wcDetailPrice b{font-size:26px}.wcDetailInfoBlock,.wcRelatedDetail{padding:18px 14px}.wcInfoGrid{grid-template-columns:1fr 1fr;gap:8px}.wcRelatedGrid{grid-template-columns:1fr}.wcRelatedCard{grid-template-columns:62px 1fr 16px}.wcRelatedImage{width:62px;height:62px}}
+@media(max-width:390px){.wcDetailImage{height:215px}.wcDetailMain{padding:11px}.wcDetailInfo h1{font-size:21px}.wcDetailActions{position:sticky;bottom:76px;background:#fff;padding-top:8px;z-index:5}}
