@@ -1,5 +1,5 @@
 const json=(data,status=200,extra={})=>new Response(JSON.stringify(data),{status,headers:{"content-type":"application/json; charset=utf-8","cache-control":"public, max-age=86400, s-maxage=604800",...extra}});
-function decodeBingUrl(value){try{return JSON.parse('"'+value.replace(/\\/g,"\\\\").replace(/"/g,'\\\"')+'"')}catch{return value.replace(/\\u002f/g,"/").replace(/\\u003d/g,"=").replace(/\\u0026/g,"&")}}
+function decodeBingUrl(value){return value.replace(/\\u002f/g,"/").replace(/\\\//g,"/").replace(/\\u003d/g,"=").replace(/\\u0026/g,"&").replace(/\\\"/g,"\\"")}catch{return value.replace(/\\u002f/g,"/").replace(/\\u003d/g,"=").replace(/\\u0026/g,"&")}}
 export default {async fetch(request,env){const u=new URL(request.url);
 if(u.pathname==="/api/product-image"){const name=(u.searchParams.get("name")||"").trim(),brand=(u.searchParams.get("brand")||"").trim(),salt=(u.searchParams.get("salt")||"").trim();if(!name)return json({url:null},400);
 const cacheKey=new Request(u.toString(),request);const cache=caches.default;const cached=await cache.match(cacheKey);if(cached)return cached;
