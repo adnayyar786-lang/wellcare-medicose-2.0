@@ -520,3 +520,63 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
 .orderActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.orderActions button{display:inline-flex;align-items:center;gap:5px}.orderActions svg{width:14px;height:14px}.whatsappOrderBtn{color:#087f4d!important;border-color:#b9d9ca!important;background:#f1faf5!important}
 .floatingWhatsApp{position:fixed;right:18px;bottom:86px;width:52px;height:52px;border:0;border-radius:50%;display:grid;place-items:center;background:#16a34a;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.22);z-index:8999;cursor:pointer}.floatingWhatsApp svg{width:26px;height:26px}.floatingWhatsApp:hover{transform:translateY(-2px)}
 @media(max-width:700px){.floatingWhatsApp{right:14px;bottom:82px;width:48px;height:48px}.orderActions{width:100%}.orderActions .whatsappOrderBtn{flex:1;justify-content:center}}
+
+
+/* ANDROID MOBILE — SEARCH / CATEGORY SLIDER HARD SEPARATION */
+@media (max-width:700px){
+  header{
+    position:relative!important;
+    overflow:visible!important;
+    height:auto!important;
+  }
+  .headerSearchRow{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:70px!important;
+    min-height:70px!important;
+    max-height:none!important;
+    padding:8px 10px 10px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    overflow:visible!important;
+    z-index:60!important;
+  }
+  .headerSearchRow .searchWrap{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:52px!important;
+    margin:0!important;
+  }
+  .headerSearchRow .search{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    height:52px!important;
+    min-height:52px!important;
+    margin:0!important;
+    top:auto!important;
+    left:auto!important;
+    right:auto!important;
+    transform:none!important;
+  }
+  .categorySlider{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    height:48px!important;
+    min-height:48px!important;
+    max-height:48px!important;
+    margin:0!important;
+    padding:6px 10px!important;
+    box-sizing:border-box!important;
+    clear:both!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap!important;
+    background:#fff!important;
+    z-index:55!important;
+    transform:none!important;
+  }
+}
