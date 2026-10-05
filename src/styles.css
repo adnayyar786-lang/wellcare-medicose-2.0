@@ -95,3 +95,51 @@ footer{background:linear-gradient(135deg,#123d2d,#0c5542);border-top:4px solid r
 .heroAdSlot b{color:#fff;font-size:29px;max-width:290px}
 .heroAdSlot small{color:#e2f7ee;font-size:12px;max-width:260px;line-height:1.5}
 .heroAdSlot .bannerOffer{position:absolute;right:30px;bottom:25px;z-index:4;background:#fff;color:#087f4d;border-radius:14px;padding:9px 13px;font-weight:900;font-size:12px;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+
+/* Wellcare Medicose navigation refresh: left slide-out menu */
+.menuTrigger{display:none;align-items:center;justify-content:center;gap:4px;width:48px;height:44px;border:1px solid #dce8e2;background:#fff;border-radius:14px;color:#176f4f;font-weight:800;cursor:pointer;flex:0 0 auto}
+.menuTrigger span{display:none;font-size:10px}
+.desktopNav{display:flex!important;align-items:center;justify-content:center;gap:6px;padding:8px 20px 10px;background:rgba(255,255,255,.9);border-top:1px solid #edf3ef;border-bottom:1px solid #e4eee9}
+.desktopNav button{border:0;background:transparent;color:#315046;font-weight:800;padding:9px 15px;border-radius:999px;cursor:pointer}
+.desktopNav button:hover{background:#eef8f3;color:#087f4d}
+.drawerBackdrop{position:fixed;inset:0;background:rgba(10,27,20,.34);backdrop-filter:blur(3px);z-index:90}
+.sideDrawer{position:fixed;left:0;top:0;bottom:0;width:min(390px,88vw);background:#fff;z-index:100;box-shadow:18px 0 50px rgba(18,48,35,.20);display:flex;flex-direction:column;animation:wellcareDrawerIn .22s cubic-bezier(.2,.8,.2,1)}
+@keyframes wellcareDrawerIn{from{transform:translateX(-105%)}to{transform:translateX(0)}}
+.drawerHead{display:flex;align-items:center;justify-content:space-between;padding:18px 18px 14px;border-bottom:1px solid #e8f0ec;background:linear-gradient(180deg,#f7fcfa,#fff)}
+.drawerBrand{display:flex;flex-direction:column;gap:4px;min-width:0}
+.drawerBrand img{width:205px;height:auto;max-height:62px;object-fit:contain;object-position:left center}
+.drawerBrand small{font-size:9px;letter-spacing:1.4px;color:#7a8c83;font-weight:900;padding-left:4px}
+.drawerClose{width:42px;height:42px;border:1px solid #dfeae5;border-radius:13px;background:#fff;color:#355248;display:grid;place-items:center;cursor:pointer;flex:0 0 auto}
+.drawerBody{overflow:auto;padding:14px 12px 20px}
+.drawerLabel{font-size:10px;letter-spacing:1.25px;color:#7b8c84;font-weight:900;padding:12px 10px 7px}
+.drawerItem{width:100%;display:grid;grid-template-columns:38px 1fr 18px;align-items:center;gap:10px;border:0;border-bottom:1px solid #f0f4f2;background:#fff;text-align:left;padding:12px 10px;border-radius:13px;color:#18372b;cursor:pointer}
+.drawerItem:hover{background:#f1faf5;color:#087f4d}
+.drawerItem>span{width:36px;height:36px;border-radius:11px;background:#f0f7f3;display:grid;place-items:center;font-size:18px}
+.drawerItem b{font-size:14px}
+.drawerItem svg{color:#8aa097}
+.drawerService{display:flex;align-items:center;gap:11px;padding:12px 10px;margin:5px 2px;background:#f7faf8;border:1px solid #e5eee9;border-radius:13px;color:#087f4d}
+.drawerService div{display:flex;flex-direction:column;gap:2px}
+.drawerService b{font-size:12px;color:#24483a}
+.drawerService small{font-size:10px;color:#819088}
+.drawerFoot{margin-top:auto;padding:13px 18px 18px;border-top:1px solid #e8f0ec;color:#73847c;font-size:10px;font-weight:800}
+.drawerFoot span{color:#0b8f55;padding:0 4px}
+.logo{display:flex;align-items:center;min-width:185px;height:52px;overflow:hidden}
+.logo img{display:block;width:185px;height:54px;object-fit:contain;object-position:left center}
+header .top{gap:12px}
+@media(max-width:900px){
+ .menuTrigger{display:flex}
+ .menuTrigger span{display:none}
+ .desktopNav{display:none!important}
+ .logo{min-width:150px;height:48px}
+ .logo img{width:150px;height:48px}
+}
+@media(max-width:700px){
+ header .top{gap:8px;padding-left:10px;padding-right:10px}
+ .menuTrigger{width:42px;height:42px;border-radius:12px}
+ .logo{min-width:128px;flex:0 1 128px}
+ .logo img{width:128px;height:42px}
+ .location{display:none}
+ .account span{display:none}
+ .account{padding:10px}
+ .cart{padding:10px}
+}
