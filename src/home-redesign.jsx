@@ -58,7 +58,7 @@ export default function HomeExperience({products,shown,branch,setCat,setSearch,s
  const deals=human.filter(p=>p.mrp&&p.mrp>p.p).slice(0,10);
  const suggestions=human.filter(p=>p.c==="Pain Relief"||p.c==="Cough & Cold"||p.c==="Vitamins"||p.c==="Skin Care").slice(0,10);
  const veterinary=products.filter(p=>/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())).slice(0,8);
- const goCategory=x=>{setCat("");setSearch("");setSelected(null);setPanel("category:"+x)}; const openProduct=p=>{setSelected(null);setDetail(p)};
+ const goCategory=x=>{setCat("");setSearch("");setSelected(null);setPanel("category:"+x)}; const openProduct=p=>{setSelected(null);setPanel(null);setDetail(p)};
  return <div className="wcHome"><div className="wcHomeContent">
   <div className="wcServiceRail">{SERVICES.map(([i,t,s],idx)=><button key={t} className={idx===0?"active":""} onClick={()=>idx===0?setCat(""):setPanel("service:"+t)}><span>{i}</span><b>{t}</b><small>{s}</small></button>)}</div>
   <section className={"wcHero wcHero-"+HEROES[slide].tone}>
