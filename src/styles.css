@@ -1167,3 +1167,7 @@ body{overflow-x:hidden;overflow-y:auto}
   .panelOverlay .dedicatedProfilePage,
   .panelOverlay .dedicatedVeterinaryPage{min-height:0!important}
 }
+
+
+/* COMMAND 1 FINAL — normalise empty-state icons */
+.panelEmpty .emptyStateIcon{width:42px!important;height:42px!important;margin:0 auto 10px!important;color:#087a5e!important;display:block!important}
