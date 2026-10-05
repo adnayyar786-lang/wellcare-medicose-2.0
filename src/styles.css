@@ -954,3 +954,42 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
 .brandSectionPanel .dedicatedSectionHero{background:linear-gradient(135deg,#fff9ec,#f7fbff)}
 .careSectionPanel .dedicatedSectionHero{background:linear-gradient(135deg,#f8f3ff,#f2faf7)}
 @media(max-width:700px){.dedicatedSectionHero{padding:12px;border-radius:14px}.dedicatedSectionIcon{width:42px;height:42px;flex-basis:42px;font-size:20px}.dedicatedSectionHero b{font-size:13px}.dedicatedSectionHero span{font-size:9px}.sectionToolbar{margin-bottom:8px}}
+
+/* SECTION 4 FINAL — TRUE FULL-PAGE SECTION INTERFACES (NOT POPUPS) */
+.dedicatedPageOverlay{
+  position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;
+  z-index:5000!important;background:#f6faf8!important;overflow:hidden!important;
+  overscroll-behavior:none!important;display:block!important;padding:0!important;
+  animation:dedicatedPageIn .18s ease-out!important;
+}
+.dedicatedSectionPage{
+  position:relative!important;width:100%!important;height:100%!important;min-height:100dvh!important;
+  max-width:none!important;margin:0!important;border:0!important;border-radius:0!important;
+  background:#fbfdfc!important;box-shadow:none!important;overflow-y:auto!important;overflow-x:hidden!important;
+  overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important;
+}
+.dedicatedSectionPage .panelHead{
+  position:sticky!important;top:0!important;z-index:10!important;width:100%!important;
+  min-height:72px!important;padding:14px clamp(16px,4vw,56px)!important;
+  box-sizing:border-box!important;background:rgba(251,253,252,.96)!important;
+  backdrop-filter:blur(14px)!important;border-bottom:1px solid #dfeae4!important;
+}
+.dedicatedSectionPage .panelContent{
+  width:min(1440px,100%)!important;margin:0 auto!important;padding:20px clamp(16px,4vw,56px) 80px!important;
+  box-sizing:border-box!important;
+}
+.dedicatedSectionPage .dedicatedSectionHero{max-width:none!important;margin-bottom:18px!important;padding:20px!important;border-radius:18px!important}
+.dedicatedSectionPage .categoryProductGrid{
+  display:grid!important;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))!important;
+  gap:14px!important;width:100%!important;
+}
+.dedicatedSectionPage .categoryProductCard{min-height:132px!important;border-radius:16px!important}
+@keyframes dedicatedPageIn{from{opacity:.6;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+  .dedicatedPageOverlay{height:100dvh!important}
+  .dedicatedSectionPage .panelHead{min-height:64px!important;padding:10px 14px!important}
+  .dedicatedSectionPage .panelContent{padding:12px 12px 76px!important}
+  .dedicatedSectionPage .dedicatedSectionHero{padding:14px!important;border-radius:15px!important}
+  .dedicatedSectionPage .categoryProductGrid{grid-template-columns:1fr!important;gap:10px!important}
+  .dedicatedSectionPage .categoryProductCard{min-height:104px!important}
+}
