@@ -71,3 +71,5 @@ body{background:
 .inventoryInactive{opacity:.65}
 .availabilityBtn{border:1px solid #dfe8e2;background:#fff;border-radius:8px;padding:7px 9px;font-size:10px}
 @media(max-width:650px){.inventoryRow{grid-template-columns:34px 1fr auto!important}.inventoryRow .stockBtns{grid-column:2}.inventoryRow .availabilityBtn{grid-column:3;grid-row:1}.inventorySummary{gap:10px;flex-wrap:wrap}}
+
+.rxBadge{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:4px 7px;border-radius:999px;background:#fff3dc;color:#8a5a00;border:1px solid #f2d79d;font-size:10px;font-weight:700}
