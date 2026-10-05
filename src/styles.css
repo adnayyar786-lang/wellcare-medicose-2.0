@@ -86,3 +86,12 @@ footer{background:linear-gradient(135deg,#123d2d,#0c5542);border-top:4px solid r
 .mobileBottom{display:none}
 @media(max-width:1050px){.heroVisual{width:350px}.quick{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.heroVisual{display:none}.quick{grid-template-columns:repeat(2,1fr)}.mobileBottom{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;height:68px;background:rgba(255,255,255,.97);border-top:1px solid #dfe8e2;z-index:50;box-shadow:0 -8px 25px rgba(23,59,41,.10);padding-bottom:env(safe-area-inset-bottom)}.mobileBottom button{position:relative;border:0;background:transparent;color:#718078;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:800}.mobileBottom button.active{color:#087f4d}.mobileBottom button i{position:absolute;top:7px;margin-left:24px;background:#087f4d;color:#fff;border-radius:20px;font-size:9px;font-style:normal;min-width:16px;height:16px;display:grid;place-items:center}.hero{margin-top:62px}}
+
+/* Temporary promotional banner until final artwork is supplied */
+.heroAdSlot{background:linear-gradient(135deg,#087f4d 0%,#0d9b8a 55%,#176fbd 100%);color:#fff;border:0;box-shadow:0 20px 48px rgba(8,127,77,.20)}
+.heroAdSlot:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-70px;bottom:-100px;background:rgba(255,255,255,.12);box-shadow:-180px -130px 0 40px rgba(255,255,255,.06)}
+.heroAdSlot:after{width:105px;height:105px;right:28px;top:28px;background:rgba(255,255,255,.14)}
+.heroAdSlot span{color:#dff9ed;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);padding:6px 9px;border-radius:999px;width:max-content;letter-spacing:1.5px}
+.heroAdSlot b{color:#fff;font-size:29px;max-width:290px}
+.heroAdSlot small{color:#e2f7ee;font-size:12px;max-width:260px;line-height:1.5}
+.heroAdSlot .bannerOffer{position:absolute;right:30px;bottom:25px;z-index:4;background:#fff;color:#087f4d;border-radius:14px;padding:9px 13px;font-weight:900;font-size:12px;box-shadow:0 10px 24px rgba(0,0,0,.12)}
