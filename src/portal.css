@@ -58,3 +58,16 @@ body{background:
 .rxFlag{margin-top:14px;padding:12px;border-radius:10px;background:#fff8e8;border:1px solid #f1dfae;display:flex;align-items:center;gap:8px}
 .rxFlag button{margin-left:auto;border:0;background:#fff;padding:7px 10px;border-radius:8px}
 @media(max-width:650px){.detailGrid{grid-template-columns:1fr 1fr}.detailItems>div{grid-template-columns:1fr auto}.detailItems strong{grid-column:2}.detailsBtn{grid-column:1/-1!important;margin-left:0!important}.orderDetailModal{padding:16px}}
+
+.inventoryTools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:4px 0 12px}
+.inventorySearch{display:flex;align-items:center;gap:7px;flex:1;min-width:220px;border:1px solid #dfe8e2;border-radius:10px;padding:9px 11px;background:#fff}
+.inventorySearch input{border:0;outline:0;width:100%;font-size:12px;background:transparent}
+.inventoryFilters{display:flex;gap:6px;flex-wrap:wrap}
+.inventoryFilters button{border:1px solid #dfe8e2;background:#fff;border-radius:9px;padding:8px 10px;font-size:11px}
+.inventoryFilters button.active{background:#173f2d;color:#fff;border-color:#173f2d}
+.inventorySummary{display:flex;gap:18px;align-items:center;margin:5px 0 12px;color:#738078;font-size:11px}
+.inventorySummary b{color:#315f49}
+.inventoryRow{grid-template-columns:36px 1fr auto auto auto!important}
+.inventoryInactive{opacity:.65}
+.availabilityBtn{border:1px solid #dfe8e2;background:#fff;border-radius:8px;padding:7px 9px;font-size:10px}
+@media(max-width:650px){.inventoryRow{grid-template-columns:34px 1fr auto!important}.inventoryRow .stockBtns{grid-column:2}.inventoryRow .availabilityBtn{grid-column:3;grid-row:1}.inventorySummary{gap:10px;flex-wrap:wrap}}
