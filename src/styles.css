@@ -710,3 +710,115 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
    max-height:270px!important;
  }
 }
+
+
+/* SECTION 3 — ANDROID HEADER FINAL STACK */
+@media (max-width:700px){
+  html,body,#root{width:100%;max-width:100%;overflow-x:hidden!important}
+  header{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  header .top{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    height:64px!important;
+    min-height:64px!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+  }
+  header .desktopNav{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    height:42px!important;
+    min-height:42px!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+  }
+  header .headerSearchRow{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:64px!important;
+    min-height:64px!important;
+    max-height:64px!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+    padding:7px 10px!important;
+    clear:both!important;
+    overflow:visible!important;
+    transform:none!important;
+    top:auto!important;
+    bottom:auto!important;
+    left:auto!important;
+    right:auto!important;
+    z-index:80!important;
+  }
+  header .headerSearchRow .searchWrap{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:50px!important;
+    min-height:50px!important;
+    margin:0!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+  }
+  header .headerSearchRow .search{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    height:50px!important;
+    min-height:50px!important;
+    max-height:50px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    top:auto!important;
+    bottom:auto!important;
+    left:auto!important;
+    right:auto!important;
+    transform:none!important;
+  }
+  header .headerSearchRow .search input{
+    min-width:0!important;
+    height:100%!important;
+    box-sizing:border-box!important;
+  }
+  header + .categorySlider{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    height:48px!important;
+    min-height:48px!important;
+    max-height:48px!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+    padding:6px 10px!important;
+    clear:both!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap!important;
+    background:#fff!important;
+    border-top:1px solid #edf3ef!important;
+    border-bottom:1px solid #dfeae4!important;
+    transform:none!important;
+    top:auto!important;
+    bottom:auto!important;
+    left:auto!important;
+    right:auto!important;
+    z-index:70!important;
+    flex-wrap:nowrap!important;
+  }
+  header + .categorySlider>*{position:relative!important;flex:0 0 auto!important}
+  header + .categorySlider button{height:34px!important;min-height:34px!important;margin:0!important;padding:0 12px!important;box-sizing:border-box!important}
+}
