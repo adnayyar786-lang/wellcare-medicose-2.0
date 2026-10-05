@@ -1266,3 +1266,23 @@ img{max-width:100%;height:auto}
 @media(max-width:700px){
  .ordersInterfacePanel{width:100vw!important;max-width:100vw!important}.ordersInterfaceBody{padding:12px!important}.ordersOverview{grid-template-columns:repeat(2,1fr)}.ordersSection{padding:12px;border-radius:15px}.ordersSectionHead{align-items:flex-start}.orderMetaGrid{grid-template-columns:repeat(2,1fr)}.orderTrackingSteps{grid-template-columns:repeat(3,1fr);row-gap:12px}.orderInterfaceActions{display:grid;grid-template-columns:1fr 1fr}.orderInterfaceActions .primary{grid-column:1/-1}.orderInterfaceCard{padding:13px}.orderInterfaceTop{align-items:flex-start}
 }
+
+/* E — final mobile/tablet interaction normalization for Cart + Orders */
+.cartInterfaceOverlay,.ordersInterfaceOverlay{overflow-y:auto!important;overflow-x:hidden!important;align-items:flex-start!important;justify-content:center!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important}
+.cartInterfacePanel,.ordersInterfacePanel{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;touch-action:auto!important}
+.cartInterfaceBody,.ordersInterfaceBody{min-width:0!important;overflow:visible!important;touch-action:auto!important}
+.cartItemMain,.cartChoice,.cartStoreBar button,.cartInterfaceHead button,.ordersInterfaceHead button,.orderInterfaceActions button,.mobileBottom button{touch-action:manipulation!important;-webkit-tap-highlight-color:transparent!important}
+.cartItemMain,.cartChoice,.orderInterfaceActions button{user-select:none!important;-webkit-user-select:none!important}
+@media(max-width:700px){
+ .cartInterfaceOverlay,.ordersInterfaceOverlay{padding:0!important;align-items:stretch!important}
+ .cartInterfacePanel,.ordersInterfacePanel{width:100vw!important;min-height:100dvh!important;border-radius:0!important}
+ .cartInterfaceBody,.ordersInterfaceBody{padding-bottom:calc(100px + env(safe-area-inset-bottom))!important}
+ .cartCheckoutBar{bottom:calc(env(safe-area-inset-bottom) + 6px)!important;margin-left:0!important;margin-right:0!important}
+ .ordersInterfaceBody{padding-bottom:calc(24px + env(safe-area-inset-bottom))!important}
+ .orderInterfaceActions button{min-height:42px!important}
+ .cartItemActions button{min-width:34px!important;min-height:34px!important}
+}
+@media(min-width:701px) and (max-width:1100px){
+ .cartInterfacePanel,.ordersInterfacePanel{width:calc(100vw - 24px)!important}
+ .orderMetaGrid{grid-template-columns:repeat(2,1fr)!important}
+}
