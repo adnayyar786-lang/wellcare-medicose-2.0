@@ -580,3 +580,43 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
     transform:none!important;
   }
 }
+
+
+/* MULTI-PANEL STOREFRONT — PROFESSIONAL MOBILE/ANDROID UI */
+.categoryHubPanel,.categoryResultsPanel,.productDetailPanel,.profileCustomer{border:1px solid #d8e5df!important;background:#fbfdfc!important;box-shadow:0 28px 90px rgba(16,55,39,.24)!important}
+.categoryHubIntro,.categoryResultsIntro{display:flex;flex-direction:column;gap:4px;padding:12px 14px;margin-bottom:12px;border:1px solid #e0ebe6;border-radius:14px;background:linear-gradient(135deg,#f2faf6,#f7fbff)}
+.categoryHubIntro b,.categoryResultsIntro b{font-size:14px;color:#183b2e}
+.categoryHubIntro span,.categoryResultsIntro span{font-size:10px;color:#708078}
+.categoryAllMedicines{width:100%;display:grid;grid-template-columns:46px 1fr 18px;align-items:center;gap:10px;text-align:left;border:1px solid #b9d9ca;background:linear-gradient(135deg,#edf8f2,#f4f9ff);border-radius:15px;padding:12px;margin-bottom:14px;color:#183b2e}
+.categoryAllMedicines>span{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#fff;font-size:21px}
+.categoryAllMedicines div{display:flex;flex-direction:column;gap:3px}.categoryAllMedicines b{font-size:13px}.categoryAllMedicines small{font-size:10px;color:#718078}
+.categoryAllMedicines svg{color:#087f4d}
+.categoryProductGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.categoryProductCard{display:grid;grid-template-columns:58px 1fr 15px;align-items:center;gap:9px;text-align:left;border:1px solid #dfe9e4;background:#fff;border-radius:14px;padding:9px;color:#18342b;min-width:0}
+.categoryProductCard:hover{border-color:#9bc9b0;box-shadow:0 8px 24px rgba(20,70,45,.08);transform:translateY(-1px)}
+.categoryProductImage{width:58px;height:58px;border-radius:11px;background:#f1f7f4;display:grid;place-items:center;overflow:hidden}
+.categoryProductCard>div:nth-child(2){min-width:0;display:flex;flex-direction:column;gap:3px}.categoryProductCard small{font-size:8px;color:#77867f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.categoryProductCard b{font-size:11px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.categoryProductCard span{font-size:9px;color:#77867f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.categoryProductCard strong{font-size:12px;color:#087f4d}.categoryProductCard>svg{color:#9aa8a1}
+@media(max-width:700px){
+ .panelOverlay{padding:0!important;align-items:flex-end!important}
+ .customerPanel{width:min(100%,720px)!important;max-width:100%!important;height:min(92dvh,820px)!important;max-height:92dvh!important;border-radius:22px 22px 0 0!important;margin:0!important}
+ .panelHead{position:sticky!important;top:0!important;z-index:5!important;background:rgba(251,253,252,.97)!important;backdrop-filter:blur(12px)!important}
+ .categoryProductGrid{grid-template-columns:1fr!important}
+ .categoryProductCard{grid-template-columns:64px 1fr 16px;padding:10px}
+ .categoryProductImage{width:64px;height:64px}
+ .productDetailPanel{height:94dvh!important;max-height:94dvh!important}
+ .productDetailPanel .detailBody{grid-template-columns:1fr!important}
+ .productDetailPanel .detailImage{min-height:230px!important}
+}
+@media(min-width:701px){
+ .customerPanel{width:min(760px,calc(100vw - 48px))!important;max-height:88vh!important}
+ .categoryProductGrid{grid-template-columns:1fr 1fr}
+}
+
+/* FINAL ANDROID HEADER FLOW — no search/slider collision */
+@media(max-width:700px){
+ header .top{position:relative!important;height:70px!important}
+ .desktopNav{position:relative!important;height:43px!important;min-height:43px!important}
+ .headerSearchRow{position:relative!important;height:70px!important;min-height:70px!important;max-height:70px!important;overflow:visible!important}
+ .categorySlider{position:relative!important;top:auto!important;bottom:auto!important;height:48px!important;min-height:48px!important;max-height:48px!important;margin:0!important;transform:none!important;clear:both!important}
+ header+.categorySlider{margin-top:0!important}
+}
