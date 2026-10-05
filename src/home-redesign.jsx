@@ -50,7 +50,8 @@ function MedicineDetails({product,allProducts,imageRenderer,onBack,onSelect,onAd
 export default function HomeExperience({products,shown,branch,setCat,setSearch,setRx,setPanel,setDetail,add,toggleWish,wishlist,imageRenderer}){
  const [selected,setSelected]=useState(null);
  const [slide,setSlide]=useState(0);
- useEffect(()=>{const t=setInterval(()=>setSlide(x=>(x+1)%HEROES.length),5500);return()=>clearInterval(t)},[]);\n useEffect(()=>{const h=e=>e.detail&&setSelected(e.detail);window.addEventListener("wellcare:open-product",h);return()=>window.removeEventListener("wellcare:open-product",h)},[]);
+ useEffect(()=>{const t=setInterval(()=>setSlide(x=>(x+1)%HEROES.length),5500);return()=>clearInterval(t)},[]);
+ useEffect(()=>{const h=e=>e.detail&&setSelected(e.detail);window.addEventListener("wellcare:open-product",h);return()=>window.removeEventListener("wellcare:open-product",h)},[]);
  const human=useMemo(()=>products.filter(p=>!/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())),[products]);
  const popular=(shown.length?shown:human).slice(0,10);
  const deals=human.filter(p=>p.mrp&&p.mrp>p.p).slice(0,10);
