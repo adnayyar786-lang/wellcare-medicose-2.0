@@ -1184,3 +1184,13 @@ body{overflow-y:auto!important;overscroll-behavior-y:auto!important}
 .veterinaryDivisionGrid,.brands{touch-action:pan-x!important;overscroll-behavior-x:contain!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important}
 .mobileBottom{touch-action:manipulation!important;pointer-events:auto!important}
 .mobileBottom button{touch-action:manipulation!important;pointer-events:auto!important}
+
+/* COMMAND B2 — FIX ACTUAL DEDICATED PAGE SCROLL SURFACE
+   The fixed overlay itself is now the vertical scroller. Child pages must not trap scrolling in a 100% box. */
+.dedicatedPageOverlay{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-height:100dvh!important;overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important;display:block!important}
+.dedicatedPageOverlay>.dedicatedSectionPage,.dedicatedPageOverlay>.dedicatedCategoryHubPage,.dedicatedPageOverlay>.dedicatedProfilePage,.dedicatedPageOverlay>.dedicatedVeterinaryPage{position:relative!important;width:100%!important;height:auto!important;min-height:100dvh!important;max-height:none!important;overflow:visible!important;touch-action:auto!important;-webkit-overflow-scrolling:auto!important}
+.dedicatedPageOverlay .panelContent{overflow:visible!important;touch-action:auto!important}
+.dedicatedPageOverlay .panelHead{position:sticky!important;top:0!important}
+.dedicatedPageOverlay .veterinaryHomeContent{height:auto!important;min-height:calc(100dvh - 68px)!important;overflow:visible!important}
+.panelOverlay{overflow-y:auto!important;overflow-x:hidden!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important}
+.panelOverlay>.customerPanel{max-height:none!important;min-height:100%!important;overflow:visible!important;touch-action:auto!important}
