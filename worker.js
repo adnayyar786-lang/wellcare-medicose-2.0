@@ -1,5 +1,12 @@
 export default {
   async fetch(request, env) {
-    return env.ASSETS.fetch(request);
+    try {
+      if (!env || !env.ASSETS) {
+        return new Response("Wellcare Worker: ASSETS binding is missing.", { status: 500 });
+      }
+      return await env.ASSETS.fetch(request);
+    } catch (error) {
+      return new Response("Wellcare Worker asset error: " + String(error?.message || error), { status: 500 });
+    }
   }
 };
