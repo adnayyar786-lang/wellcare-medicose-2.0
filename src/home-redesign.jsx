@@ -17,29 +17,40 @@ function ProductRail({title,sub,items,imageRenderer,onDetail,onAdd,onWish,wishli
 
 function MedicineDetails({product,allProducts,imageRenderer,onBack,onSelect,onAdd,wishlist,onWish}){
  const related=allProducts.filter(x=>x.id!==product.id&&(x.b===product.b||x.c===product.c||x.salt===product.salt)).slice(0,8);
+ const discount=product.mrp&&product.mrp>product.p?Math.round((1-product.p/product.mrp)*100):0;
  return <section className="wcProductDetailView">
-  <div className="wcDetailTop"><button className="wcBackButton" onClick={onBack}><ChevronLeft size={18}/> Back to medicines</button><span>MEDICINE DETAILS</span></div>
+  <div className="wcDetailTop"><button className="wcBackButton" onClick={onBack}><ChevronLeft size={18}/> Back to medicines</button><span>PRODUCT DETAILS</span></div>
+  <div className="wcDetailStoreBar"><div><span className="wcStoreDot">●</span><div><b>Wellcare Medicose</b><small>Selected store · genuine pharmacy stock</small></div></div><span className="wcStoreStatus">IN STOCK</span></div>
   <div className="wcDetailMain">
-   <div className="wcDetailImage">{imageRenderer(product)}</div>
+   <div className="wcDetailGallery">
+    <div className="wcDetailImage">{imageRenderer(product)}{discount>0&&<span className="wcDetailDiscount">{discount}% OFF</span>}</div>
+    <div className="wcGalleryDots"><i className="active"/><i/><i/></div>
+   </div>
    <div className="wcDetailInfo">
-    <div className="wcDetailBrand">{product.b||"Wellcare"}</div><h1>{product.n}</h1>
-    <p className="wcDetailSalt">{product.salt||"Trusted healthcare product"}</p>
-    <div className="wcDetailRating">★ 4.8 <span>126 reviews · Genuine product</span></div>
-    <div className="wcDetailPrice"><b>₹{product.p}</b>{product.mrp&&<del>₹{product.mrp}</del>}{product.mrp&&product.mrp>product.p&&<em>{Math.round((1-product.p/product.mrp)*100)}% OFF</em>}</div>
-    {product.rx&&<div className="wcRxNotice">Prescription required for this medicine</div>}
-    <div className="wcDetailFacts"><span>✓ Genuine medicine</span><span>✓ Store pickup</span><span>✓ Home delivery</span></div>
-    <div className="wcDetailActions"><button className="wcDetailAdd" disabled={product.stock===0} onClick={()=>onAdd(product)}><Plus size={17}/> {product.stock===0?"Out of stock":"Add to Cart · ₹"+product.p}</button><button className={"wcDetailWish "+(wishlist.some(x=>x.id===product.id)?"liked":"")} onClick={()=>onWish(product)}><Heart size={18} fill={wishlist.some(x=>x.id===product.id)?"currentColor":"none"}/></button></div>
+    <div className="wcDetailBrand">{product.b||"Wellcare"}</div>
+    <h1>{product.n}</h1>
+    <p className="wcDetailSalt">{product.salt||"Trusted healthcare product"} · {product.c||"Healthcare"}</p>
+    <div className="wcDetailRating"><b>★ 4.8</b><span>126 reviews</span><em>✓ Genuine</em></div>
+    <div className="wcDetailPrice"><b>₹{product.p}</b>{product.mrp&&<del>₹{product.mrp}</del>}{discount>0&&<em>{discount}% OFF</em>}</div>
+    {product.rx&&<div className="wcRxNotice">Prescription required · Upload your prescription at checkout.</div>}
+    <div className="wcDeliveryTitle">Get it your way</div>
+    <div className="wcDeliveryChoices">
+      <button className="selected"><span>🚚</span><div><b>Home delivery</b><small>Estimated 20–30 min</small></div><strong>✓</strong></button>
+      <button><span>🏪</span><div><b>Store pickup</b><small>Ready in 10–15 min</small></div><strong>›</strong></button>
+    </div>
+    <div className="wcDetailFacts"><span>✓ Genuine medicine</span><span>✓ Secure checkout</span><span>✓ Pickup + home delivery</span></div>
+    <div className="wcDetailActions"><button className="wcDetailAdd" disabled={product.stock===0} onClick={()=>onAdd(product)}><Plus size={17}/> {product.stock===0?"Out of stock":"Add to Cart · ₹"+product.p}</button><button className={"wcDetailWish "+(wishlist.some(x=>x.id===product.id)?"liked":"")} onClick={()=>onWish(product)}>♥</button></div>
    </div>
   </div>
   <div className="wcDetailInfoBlock"><span className="wcEyebrow">ABOUT THIS MEDICINE</span><h2>Product information</h2><p>{product.salt||product.c||"Medicine information available from your selected Wellcare store."}</p><div className="wcInfoGrid"><div><b>Brand</b><span>{product.b||"Wellcare"}</span></div><div><b>Category</b><span>{product.c||"Healthcare"}</span></div><div><b>MRP</b><span>₹{product.mrp||product.p}</span></div><div><b>Availability</b><span>{product.stock===0?"Currently unavailable":"Available at selected store"}</span></div></div></div>
-  <div className="wcRelatedDetail"><div className="wcSectionHead"><div><span className="wcEyebrow">SIMILAR PRODUCTS</span><h2>You may also like</h2><p>Other medicines related by brand, category or composition.</p></div></div>{related.length?<div className="wcRelatedGrid">{related.map(p=><button key={p.id} className="wcRelatedCard" onClick={()=>onSelect(p)}><div className="wcRelatedImage">{imageRenderer(p)}</div><div className="wcRelatedText"><small>{p.b||"Wellcare"} · {p.c||"Healthcare"}</small><b>{p.n}</b><span>₹{p.p}</span></div><ChevronRight size={17}/></button>)}</div>:<div className="wcNoRelated">More medicines will appear here as the catalogue grows.</div>}</div>
+  <div className="wcWhyDetail"><div><b>✓ Authentic products</b><span>Pharmacy-sourced inventory</span></div><div><b>⚡ Fast local fulfilment</b><span>Delivery ETA shown before checkout</span></div><div><b>↺ Easy reorders</b><span>Find regular medicines quickly</span></div></div>
+  <div className="wcRelatedDetail"><div className="wcSectionHead"><div><span className="wcEyebrow">RELATED PRODUCTS</span><h2>You may also like</h2><p>Same composition, brand or nearby healthcare category.</p></div></div>{related.length?<div className="wcRelatedGrid">{related.map(p=><button key={p.id} className="wcRelatedCard" onClick={()=>onSelect(p)}><div className="wcRelatedImage">{imageRenderer(p)}</div><div className="wcRelatedText"><small>{p.b||"Wellcare"} · {p.c||"Healthcare"}</small><b>{p.n}</b><span>₹{p.p}</span></div><ChevronRight size={17}/></button>)}</div>:<div className="wcNoRelated">More medicines will appear here as the catalogue grows.</div>}</div>
  </section>
 }
-
 export default function HomeExperience({products,shown,branch,setCat,setSearch,setRx,setPanel,setDetail,add,toggleWish,wishlist,imageRenderer}){
  const [selected,setSelected]=useState(null);
  const [slide,setSlide]=useState(0);
- useEffect(()=>{const t=setInterval(()=>setSlide(x=>(x+1)%HEROES.length),5500);return()=>clearInterval(t)},[]);
+ useEffect(()=>{const t=setInterval(()=>setSlide(x=>(x+1)%HEROES.length),5500);return()=>clearInterval(t)},[]);\n useEffect(()=>{const h=e=>e.detail&&setSelected(e.detail);window.addEventListener("wellcare:open-product",h);return()=>window.removeEventListener("wellcare:open-product",h)},[]);
  const human=useMemo(()=>products.filter(p=>!/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())),[products]);
  const popular=(shown.length?shown:human).slice(0,10);
  const deals=human.filter(p=>p.mrp&&p.mrp>p.p).slice(0,10);
