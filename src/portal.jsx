@@ -11,7 +11,7 @@ export default function Portal(){
  useEffect(()=>{if(!selected)return;let ch;subscribeBranch(selected).then(x=>ch=x);return()=>{if(ch)supabase.removeChannel(ch)}},[selected]);
  async function load(s){setSession(s);if(!s){setBusy(false);return}const{data:r}=await supabase.from("user_roles").select("role").eq("user_id",s.user.id).maybeSingle();setRole(r?.role||"customer");if(r?.role==="admin"){await loadAdmin();await loadProducts();await loadCustomers();await loadPayments()}else if(r?.role==="staff")await loadStaff(s.user.id);setBusy(false)}
  async function loadAdmin(){const{data:b}=await supabase.from("branch_dashboard_summary").select("*").order("name");setBranches(b||[]);if(!selected&&b?.[0])setSelected(b[0].id);const{data:o}=await supabase.from("orders").select("id,branch_id,total,status,delivery_status,payment_status,fulfillment_method,created_at").order("created_at",{ascending:false}).limit(50);setOrders(o||[])}
- async function loadStaff(uid){const{data:m}=await supabase.from("staff_members").select("branch_id,role,active").eq("user_id",uid).maybeSingle();if(m?.branch_id){setSelected(m.branch_id);const{data:b}=await supabase.from("branches").select("*").eq("id",m.branch_id).maybeSingle();setBranches(b?[b]:[]);await loadBranchData(m.branch_id)}}
+ async function loadStaff(uid){const{data:m}=await supabase.from("staff_members").select("branch_id,role,active").eq("user_id",uid).maybeSingle();if(m?.branch_id&&m.active!==false){setSelected(m.branch_id);const{data:b}=await supabase.from("branches").select("*").eq("id",m.branch_id).maybeSingle();setBranches(b?[b]:[]);await loadBranchData(m.branch_id);await loadPrescriptions(m.branch_id);await loadBranchCustomers(m.branch_id)}}
  async function loadPrescriptions(id){const{data,error}=await supabase.from("prescriptions").select("id,user_id,storage_path,status,notes,created_at,reviewed_at,rejection_reason,branch_id").eq("branch_id",id).order("created_at",{ascending:false}).limit(80);if(error)setError(error.message);else setPrescriptions(data||[])}
  async function viewPrescription(path){const{data,error}=await supabase.storage.from("prescriptions").createSignedUrl(path,300);if(error)setError(error.message);else if(data?.signedUrl)window.open(data.signedUrl,"_blank","noopener,noreferrer")}
  async function reviewPrescription(id,next,reason=null){setRxBusy(id);const{error}=await supabase.rpc("review_prescription",{p_prescription_id:id,p_status:next,p_reason:reason});if(error)setError(error.message);else setPrescriptions(x=>x.map(p=>p.id===id?{...p,status:next,rejection_reason:reason}:p));setRxBusy("");}
@@ -22,6 +22,21 @@ export default function Portal(){
  async function selectBranch(id){setSelected(id);if(role==="staff")return;await loadBranchData(id);await loadPrescriptions(id)}
  async function loadCustomers(){const{data,error}=await supabase.from("profiles").select("id,full_name,phone,role,created_at").order("created_at",{ascending:false}).limit(200);if(error)setError(error.message);else setCustomers(data||[])}
  async function loadPayments(){const{data,error}=await supabase.from("payment_transactions").select("id,order_id,provider,amount,currency,status,created_at").order("created_at",{ascending:false}).limit(100);if(error)setError(error.message);else setPayments(data||[])}
+ async function loadBranchCustomers(branchId){
+   const{data:os,error:oe}=await supabase.from("orders").select("user_id").eq("branch_id",branchId).not("user_id","is",null).limit(200);
+   if(oe){setError(oe.message);return}
+   const ids=[...new Set((os||[]).map(x=>x.user_id).filter(Boolean))];
+   if(!ids.length){setCustomers([]);setPayments([]);return}
+   const[{data:cs,error:ce},{data:bo,error:be}]=await Promise.all([
+     supabase.from("profiles").select("id,full_name,phone,role,created_at").in("id",ids).order("created_at",{ascending:false}),
+     supabase.from("orders").select("id").eq("branch_id",branchId).order("created_at",{ascending:false}).limit(100)
+   ]);
+   if(ce)setError(ce.message);else setCustomers(cs||[]);
+   const orderIds=(bo||[]).map(x=>x.id);
+   if(!orderIds.length){setPayments([]);return}
+   const{data:ps,error:pe}=await supabase.from("payment_transactions").select("id,order_id,provider,amount,currency,status,created_at").in("order_id",orderIds).order("created_at",{ascending:false}).limit(100);
+   if(pe)setError(pe.message);else setPayments(ps||[]);
+ }
  async function loadProducts(){const{data,error}=await supabase.from("products").select("id,name,brand,category,description,price,mrp,images,prescription_required,active").order("created_at",{ascending:false}).limit(200);if(error)setError(error.message);else setProducts(data||[])}
  async function saveProduct(e){e.preventDefault();setError("");const payload={name:productForm.name.trim(),brand:productForm.brand.trim(),category:productForm.category.trim(),description:productForm.description.trim(),price:Number(productForm.price),mrp:Number(productForm.mrp),images:productForm.images.split(",").map(x=>x.trim()).filter(Boolean),prescription_required:productForm.prescription_required,active:true};if(!payload.name||!payload.price||!payload.mrp)return setError("Product name, price and MRP are required.");const{error}=await supabase.from("products").insert(payload);if(error)setError(error.message);else{setProductForm({name:"",brand:"",category:"Medicines",description:"",price:"",mrp:"",images:"",prescription_required:false});await loadProducts();setMessage("Product added to central catalogue");}}
  async function subscribeBranch(id){if(!id)return;const ch=supabase.channel("staff-orders-"+id).on("postgres_changes",{event:"*",schema:"public",table:"orders",filter:"branch_id=eq."+id},async()=>{await loadBranchData(id);setMessage("Live order update received")}).subscribe();return ch;}
