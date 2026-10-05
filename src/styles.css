@@ -639,3 +639,74 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
 .productDetailPanel .detailHeroImage img{max-height:390px!important;width:100%!important;height:100%!important;object-fit:contain!important;padding:22px!important;box-sizing:border-box!important}
 .productDetailPanel .detailInfo{padding:10px 8px 0!important}.productDetailPanel .panelHead h2{font-size:20px!important}.productDetailPanel .detailSection{padding:22px 26px!important}
 @media(max-width:700px){.panelOverlay:has(.productDetailPanel){align-items:stretch!important}.productDetailPanel{width:100%!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important}.productDetailPanel .detailBody{grid-template-columns:1fr!important;padding:14px!important;gap:16px!important}.productDetailPanel .detailHeroImage{height:300px!important;min-height:300px!important}.productDetailPanel .detailHeroImage img{max-height:280px!important}.productDetailPanel .detailInfo{padding:0!important}.productDetailPanel .detailSection{padding:16px 14px!important}.productDetailPanel .panelHead{padding:16px 14px!important}}
+
+
+/* FINAL MEDICINE DETAIL IMAGE DIMENSIONS — clean responsive frame */
+.productDetailPanel .detailHeroImage{
+  position:relative!important;
+  width:100%!important;
+  height:440px!important;
+  min-height:440px!important;
+  max-height:440px!important;
+  padding:18px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.productDetailPanel .detailHeroImage .productImageInner{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+}
+.productDetailPanel .detailHeroImage .productImageInner img{
+  position:static!important;
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:0!important;
+  margin:0!important;
+}
+.productDetailPanel .detailHeroImage .productImageInner:not(:has(img)){
+  width:100%!important;height:100%!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  font-size:82px!important;line-height:1!important;
+}
+@media(max-width:700px){
+ .productDetailPanel .detailHeroImage{
+   width:100%!important;
+   height:300px!important;
+   min-height:300px!important;
+   max-height:300px!important;
+   padding:14px!important;
+   border-radius:18px!important;
+ }
+ .productDetailPanel .detailHeroImage .productImageInner img{
+   max-width:100%!important;
+   max-height:100%!important;
+   width:auto!important;
+   height:auto!important;
+ }
+}
+@media(max-width:390px){
+ .productDetailPanel .detailHeroImage{
+   height:270px!important;
+   min-height:270px!important;
+   max-height:270px!important;
+ }
+}
