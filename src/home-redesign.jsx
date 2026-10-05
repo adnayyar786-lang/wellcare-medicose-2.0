@@ -1,0 +1,42 @@
+import React,{useEffect,useMemo,useState}from"react";
+import{ArrowRight,ChevronLeft,ChevronRight,Heart,Plus,ShieldCheck,Truck,Upload}from"lucide-react";
+
+const HEROES=[
+ {eyebrow:"WELLCARE MEDICOSE",title:"Trusted healthcare,\nright at your doorstep.",copy:"Shop medicines, wellness essentials and pet care from your selected Wellcare store.",cta:"Shop Medicines",tone:"mint",icon:"💊"},
+ {eyebrow:"FAST LOCAL PHARMACY",title:"Order now.\nPick up or get it delivered.",copy:"Choose store pickup or convenient home delivery at checkout.",cta:"Explore Pharmacy",tone:"blue",icon:"🛍️"},
+ {eyebrow:"HEALTH • WELLNESS • CARE",title:"Everyday essentials\nfrom trusted brands.",copy:"Discover medicines, personal care, nutrition and healthcare products.",cta:"Browse Categories",tone:"cream",icon:"🩺"}
+];
+const SERVICES=[["💊","Pharmacy","Medicines"],["✦","Latest","New arrivals"],["🐾","Petcare","Pet health"],["🩺","Consult","Doctor help"],["☼","Wellness","Daily health"],["⌁","Health Devices","Care at home"]];
+const CATEGORIES=[["Fever & Headache","🌡️"],["Pain Relief","💊"],["Cough & Cold","🌿"],["Diabetes","🩺"],["Heart Care","❤️"],["Gut & Stomach","◉"],["Vitamins & Supplements","🍊"],["Skin Care","🧴"],["Hair Care","🧴"],["Baby Care","🍼"],["Women Care","♀"],["First Aid","✚"]];
+const BRANDS=["Mankind","Dr. Reddy's","Cipla","Abbott","Sun Pharma","Dabur","Himalaya","Apollo"];
+const VET=[["DOG CARE","🐶"],["CAT CARE","🐱"],["Puppy","🐾"],["Kitten","🐾"],["Pet Food","🥣"],["Supplements","🧴"],["Grooming","✂️"],["Tick & Flea","🪲"],["Deworming","◉"]];
+
+function ProductRail({title,sub,items,imageRenderer,onDetail,onAdd,onWish,wishlist}){
+ return <section className="wcRailSection"><div className="wcSectionHead"><div><span className="wcEyebrow">WELLCARE PICKS</span><h2>{title}</h2>{sub&&<p>{sub}</p>}</div><button className="wcViewAll" onClick={()=>items[0]&&onDetail(items[0])}>View all <ArrowRight size={16}/></button></div><div className="wcProductRail">{items.map(p=><article className="wcProductCard" key={p.id} onClick={()=>onDetail(p)}><button className={"wcWish "+(wishlist.some(x=>x.id===p.id)?"liked":"")} onClick={e=>{e.stopPropagation();onWish(p)}}><Heart size={17} fill={wishlist.some(x=>x.id===p.id)?"currentColor":"none"}/></button><div className="wcProductMedia"><span className="wcBrandBadge">{p.b||"Wellcare"}</span>{imageRenderer(p)}{p.mrp&&p.mrp>p.p&&<span className="wcDiscount">{Math.round((1-p.p/p.mrp)*100)}% OFF</span>}</div><div className="wcProductMeta"><small>{p.c||"Healthcare"}</small><h3>{p.n}</h3><p>{p.salt||"Trusted healthcare product"}</p><div className="wcRating">★ 4.8 <span>· Genuine</span></div><div className="wcPriceRow"><div><b>₹{p.p}</b>{p.mrp&&<del>₹{p.mrp}</del>}</div><button className="wcAdd" disabled={p.stock===0} onClick={e=>{e.stopPropagation();onAdd(p)}}>{p.stock===0?"Out of stock":<><Plus size={15}/> Add</>}</button></div></div></article>)}</div></section>
+}
+
+export default function HomeExperience({products,shown,branch,setCat,setSearch,setRx,setPanel,setDetail,add,toggleWish,wishlist,imageRenderer}){
+ const [slide,setSlide]=useState(0);
+ useEffect(()=>{const t=setInterval(()=>setSlide(x=>(x+1)%HEROES.length),5500);return()=>clearInterval(t)},[]);
+ const human=useMemo(()=>products.filter(p=>!/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())),[products]);
+ const popular=(shown.length?shown:human).slice(0,10);
+ const deals=human.filter(p=>p.mrp&&p.mrp>p.p).slice(0,10);
+ const suggestions=human.filter(p=>p.c==="Pain Relief"||p.c==="Cough & Cold"||p.c==="Vitamins"||p.c==="Skin Care").slice(0,10);
+ const veterinary=products.filter(p=>/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())).slice(0,8);
+ const goCategory=x=>{setCat("");setSearch(x);document.querySelector(".wcHome")?.scrollIntoView({behavior:"smooth",block:"start"})};
+ return <div className="wcHome">
+  <div className="wcServiceRail">{SERVICES.map(([i,t,s],idx)=><button key={t} className={idx===0?"active":""} onClick={()=>idx===0?setCat(""):setPanel("service:"+t)}><span>{i}</span><b>{t}</b><small>{s}</small></button>)}</div>
+  <section className={"wcHero wcHero-"+HEROES[slide].tone}>
+   <div className="wcHeroCopy"><span className="wcEyebrow">{HEROES[slide].eyebrow}</span><h1>{HEROES[slide].title.split("\n").map((x,i)=><React.Fragment key={i}>{i>0&&<br/>}{x}</React.Fragment>)}</h1><p>{HEROES[slide].copy}</p><div className="wcHeroActions"><button className="wcPrimary" onClick={()=>setCat("")}>{HEROES[slide].cta}<ArrowRight size={17}/></button><button className="wcSecondary" onClick={()=>setRx(true)}><Upload size={16}/> Prescription</button></div><div className="wcHeroTrust"><span><ShieldCheck size={15}/> Genuine medicines</span><span><Truck size={15}/> Pickup + delivery</span></div></div>
+   <div className="wcHeroVisual"><div className="wcHeroGlow"/><div className="wcHeroBag"><span>{HEROES[slide].icon}</span><b>Wellcare</b><small>MEDICOSE</small></div><div className="wcHeroFloat wcFloatA">✓ Licensed pharmacy</div><div className="wcHeroFloat wcFloatB">⚡ Fast local fulfilment</div></div>
+   <div className="wcHeroDots">{HEROES.map((_,i)=><button key={i} className={i===slide?"active":""} onClick={()=>setSlide(i)} aria-label={"Slide "+(i+1)}/>)}</div>
+  </section>
+  <section className="wcSearchHint"><div><b>What are you looking for?</b><span>Search by medicine, brand, salt or health need above</span></div><button onClick={()=>document.querySelector(".headerSearchRow input")?.focus()}>Start searching <ArrowRight size={15}/></button></section>
+  <section className="wcCategoryBlock"><div className="wcSectionHead"><div><span className="wcEyebrow">SHOP SMART</span><h2>Medicines & Healthcare</h2><p>Popular categories for everyday health.</p></div><button className="wcViewAll" onClick={()=>setPanel("categories")}>View all <ArrowRight size={16}/></button></div><div className="wcCategoryRail">{CATEGORIES.map(([t,i])=><button key={t} onClick={()=>goCategory(t)}><span>{i}</span><b>{t}</b></button>)}</div></section>
+  <section className="wcBrandSection"><div className="wcSectionHead"><div><span className="wcEyebrow">TRUSTED COMPANIES</span><h2>Shop by top brands</h2><p>Medicines and healthcare from familiar names.</p></div><button className="wcViewAll" onClick={()=>setPanel("categories")}>All brands <ArrowRight size={16}/></button></div><div className="wcBrandRail">{BRANDS.map(b=><button key={b} onClick={()=>goCategory(b)}><span className="wcBrandLogo">{b.replace(/[^A-Za-z]/g,"").slice(0,2).toUpperCase()}</span><b>{b}</b><small>View products</small></button>)}</div></section>
+  <ProductRail title="Popular Medicines" sub="Best picks available from your selected Wellcare store." items={popular} imageRenderer={imageRenderer} onDetail={setDetail} onAdd={add} onWish={toggleWish} wishlist={wishlist}/>
+  <ProductRail title="Deals & Everyday Essentials" sub="Great-value healthcare products with clear pricing." items={deals.length?deals:popular.slice().reverse()} imageRenderer={imageRenderer} onDetail={setDetail} onAdd={add} onWish={toggleWish} wishlist={wishlist}/>
+  <section className="wcSuggestion"><div className="wcSuggestionIntro"><span className="wcEyebrow">YOU MAY ALSO LIKE</span><h2>Related medicines & suggestions</h2><p>Similar categories, salts and everyday healthcare picks—so customers can discover the next useful product without leaving the page.</p></div><div className="wcSuggestionRail">{suggestions.map(p=><button key={p.id} onClick={()=>setDetail(p)}><div className="wcSuggestionImage">{imageRenderer(p)}</div><div><small>{p.b}</small><b>{p.n}</b><strong>₹{p.p}</strong></div><ArrowRight size={16}/></button>)}</div></section>
+  <section className="wcVetSection"><div className="wcSectionHead"><div><span className="wcEyebrow">SEPARATE PET CARE</span><h2>Veterinary Care</h2><p>Dog, cat, puppy, kitten, food, grooming and pet health.</p></div><button className="wcViewAll" onClick={()=>setPanel("petcare")}>View all <ArrowRight size={16}/></button></div><div className="wcVetRail">{VET.map(([t,i],idx)=><button key={t} onClick={()=>idx<2?setPanel("petcare"):goCategory(t)} className={idx<2?"wcVetBig":""}><span>{i}</span><b>{t}</b><small>Pet care</small></button>)}</div>{veterinary.length>0&&<div className="wcVetProducts">{veterinary.slice(0,6).map(p=><article key={p.id} onClick={()=>setDetail(p)}><div>{imageRenderer(p)}</div><b>{p.n}</b><span>₹{p.p}</span><button onClick={e=>{e.stopPropagation();add(p)}}><Plus size={14}/> Add</button></article>)}</div>}</section>
+ </div>
+}
