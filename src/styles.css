@@ -1220,3 +1220,8 @@ img{max-width:100%;height:auto}
  .productImg{max-width:100%!important}
  .mobileBottom{padding-bottom:max(8px,env(safe-area-inset-bottom))!important}
 }
+
+/* ORDERS EMPTY STATE — no oversized centered order monogram */
+.orderEmptyState{display:block!important;text-align:left!important;padding:28px 8px!important}
+.orderEmptyState h3{margin:0 0 6px!important}
+.orderEmptyState p{margin:0!important}
