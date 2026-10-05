@@ -155,3 +155,51 @@ header .top{gap:12px}
 /* Full category navigation */
 .categoryPanel{margin:34px 0 20px;padding:20px;border:1px solid var(--wc-line);border-radius:20px;background:#fff;box-shadow:0 8px 28px rgba(20,60,42,.045);scroll-margin-top:20px}.categoryPanel .sectionHead{margin-bottom:16px}.categoryPanel .eyebrow{font-size:9px;letter-spacing:1.4px}.categoryGroups{display:grid;grid-template-columns:1fr 1fr;gap:14px}.categoryGroup{border:1px solid #e2ebe6;border-radius:15px;padding:14px;background:linear-gradient(180deg,#fff,#f9fcfa)}.categoryGroup h3{margin:0 0 10px;font-size:14px;color:#24483a}.categoryChips{display:flex;flex-wrap:wrap;gap:7px}.categoryChips button{border:1px solid #dbe7e0;background:#f7faf8;color:#385248;border-radius:999px;padding:8px 11px;font-size:10px;font-weight:800;cursor:pointer}.categoryChips button:hover{background:#eaf8f0;color:#087f4d;border-color:#afd4bf}.brandChips button{background:#fff}.veterinaryGroup{background:linear-gradient(135deg,#fffaf3,#f8fcf8);border-color:#e8dfcd}.veterinaryGroup h3{color:#76501f}.veterinaryGroup .categoryChips button{background:#fffdf8;border-color:#eadfc9}.mobileBottom button.active{color:#087f4d}
 @media(max-width:700px){.categoryPanel{margin:24px 0 18px;padding:14px;border-radius:16px}.categoryGroups{grid-template-columns:1fr}.categoryGroup{padding:12px}.categoryChips{gap:6px}.categoryChips button{padding:8px 9px;font-size:9px}}
+
+/* Amazon-style Wellcare header hierarchy */
+header{position:relative;z-index:40;background:#fff}
+header .top{height:78px;gap:14px;padding:0 max(18px,4vw)}
+.logo{min-width:250px;width:250px;padding:0;gap:8px;overflow:visible}
+.logo img{width:62px;height:54px;object-fit:contain;object-position:center}
+.brandName{display:flex;flex-direction:column;justify-content:center;line-height:1.05}
+.brandName b{font-size:21px;letter-spacing:-.4px;white-space:nowrap}
+.brandName small{font-size:7px;letter-spacing:1.7px;color:#74847b;margin-top:5px;font-weight:900;white-space:nowrap}
+header .top>.searchWrap{display:none}
+.headerSearchRow{width:100%;background:#fff;padding:10px max(18px,4vw) 13px;border-top:1px solid #edf3ef;border-bottom:1px solid #dfeae4}
+.headerSearchRow .searchWrap{max-width:none;width:100%}
+.headerSearchRow .search{width:100%;max-width:none;height:56px;border-radius:15px;background:#f5f8f6;border:1px solid #cfded6;padding:0 9px 0 17px}
+.headerSearchRow .search>svg{width:23px;height:23px;color:#087f4d;flex:0 0 auto}
+.headerSearchRow .search input{font-size:15px;padding:0 12px}
+.voiceBtn,.cameraBtn{width:42px;height:42px;border:0;background:transparent;border-radius:11px;display:grid;place-items:center;color:#087f4d;position:relative;flex:0 0 auto}
+.voiceBtn:hover,.cameraBtn:hover{background:#eaf8f0}
+.voiceBtn.listening{background:#dff5e9;color:#05613b;box-shadow:0 0 0 4px rgba(8,127,77,.08)}
+.headerSearchRow .cameraBtn input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.desktopNav{height:50px;justify-content:flex-start;overflow-x:auto;gap:2px;padding:5px max(18px,4vw);scrollbar-width:none;box-shadow:none}
+.desktopNav::-webkit-scrollbar{display:none}
+.desktopNav button{font-size:12px;padding:9px 14px;white-space:nowrap}
+.desktopNav button:first-child{background:#edf8f2;color:#087f4d}
+@media(max-width:900px){
+ header .top{height:70px;padding:0 12px}
+ .logo{min-width:0;width:auto;flex:1;gap:5px}
+ .logo img{width:48px;height:46px}
+ .brandName b{font-size:17px}.brandName small{font-size:6px;letter-spacing:1.2px}
+ .account{padding:8px}.cart{padding:8px}
+ .desktopNav{display:flex!important;height:46px;padding-left:12px;padding-right:12px}
+ .desktopNav button{font-size:11px;padding:8px 12px}
+ .headerSearchRow{padding:8px 12px 11px}
+ .headerSearchRow .search{height:52px}
+}
+@media(max-width:560px){
+ header .top{gap:6px}
+ .menuTrigger{width:40px;height:40px}
+ .logo img{width:42px;height:42px}
+ .brandName b{font-size:15px}.brandName small{font-size:5.5px}
+ .location{display:none}
+ .account{padding:7px}.cart{padding:7px}
+ .desktopNav{height:43px}
+ .desktopNav button{font-size:10px;padding:7px 11px}
+ .headerSearchRow{padding:7px 10px 10px}
+ .headerSearchRow .search{height:50px;border-radius:13px}
+ .headerSearchRow .search input{font-size:13px}
+ .voiceBtn,.cameraBtn{width:38px;height:38px}
+}
