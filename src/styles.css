@@ -203,3 +203,57 @@ header .top>.searchWrap{display:none}
  .headerSearchRow .search input{font-size:13px}
  .voiceBtn,.cameraBtn{width:38px;height:38px}
 }
+
+/* Final header overlap fix + premium pharmacy palette */
+.headerSearchRow .search{position:relative!important;left:auto!important;right:auto!important;top:auto!important;order:initial!important;flex:1!important;max-width:none!important}
+@media(max-width:700px){
+ .headerSearchRow{position:relative;z-index:45}
+ .headerSearchRow .search{position:relative!important;left:auto!important;right:auto!important;top:auto!important;width:100%!important;margin:0!important}
+ .hero{margin-top:0!important}
+}
+:root{
+ --wc-green:#126b4f;
+ --wc-deep:#0b4f3b;
+ --wc-teal:#168b7a;
+ --wc-blue:#3c6f9f;
+ --wc-mint:#edf7f3;
+ --wc-surface:#ffffff;
+ --wc-bg:#f5f8f7;
+ --wc-ink:#18342b;
+ --wc-muted:#66766e;
+ --wc-line:#dbe6e1;
+}
+html,body{background:var(--wc-bg);color:var(--wc-ink)}
+header{background:#fff;box-shadow:0 3px 18px rgba(25,57,46,.07)}
+header .top{background:#fff;border-bottom:1px solid #e5ece8}
+.logo b{color:var(--wc-deep)!important}
+.logo img{filter:none}
+.brandName small{color:#7a8982}
+.desktopNav{background:#fbfcfc;border-top:0;border-bottom:1px solid #e1e9e5}
+.desktopNav button{color:#3b5149}
+.desktopNav button:first-child{background:#e9f4ef;color:var(--wc-deep)}
+.desktopNav button:hover{background:#edf5f2;color:var(--wc-deep)}
+.headerSearchRow{background:#fff;border-top:1px solid #edf2ef;border-bottom:1px solid #dce6e1}
+.headerSearchRow .search{background:#f8faf9;border:1px solid #cbdad3;box-shadow:0 4px 15px rgba(25,57,46,.045)}
+.headerSearchRow .search:focus-within{background:#fff;border-color:#76aa96;box-shadow:0 0 0 3px rgba(18,107,79,.08)}
+.headerSearchRow .search>svg,.voiceBtn,.cameraBtn{color:var(--wc-deep)}
+.voiceBtn:hover,.cameraBtn:hover{background:#edf6f2}
+.voiceBtn.listening{background:#e0f1ea;color:#0b4f3b}
+main{background:transparent}
+.sectionHead h2{color:var(--wc-ink)}
+.categoryPanel,.shopMode,.visualSearchPanel,.product,.cat,.quick button,.why,.benefits{background:#fff;border-color:var(--wc-line)}
+.categoryGroup{background:#fbfcfc;border-color:#e1e9e5}
+.categoryChips button{background:#f7faf9;border-color:#d9e5df;color:#3b5149}
+.categoryChips button:hover{background:#eaf4ef;border-color:#a9cdbd;color:var(--wc-deep)}
+.hero{background:linear-gradient(120deg,#e9f4ef 0%,#f8faf9 62%,#edf4f8 100%);border-color:#dce8e2}
+.primary{background:linear-gradient(135deg,#126b4f,#168b7a)}
+.primary:hover{background:linear-gradient(135deg,#0b4f3b,#126b4f)}
+.productImg{background:#f1f6f4}
+.buy button{color:var(--wc-deep);border-color:#a9cbbb}
+.buy button:hover{background:#edf6f2}
+.rxBanner{background:linear-gradient(110deg,#edf7f2,#f1f6f8);border-color:#dce8e2}
+footer{background:linear-gradient(135deg,#173f33,#0e5b48);border-top:1px solid rgba(255,255,255,.08)}
+@media(max-width:700px){
+ .top{box-shadow:none}
+ .desktopNav{box-shadow:none}
+}
