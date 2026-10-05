@@ -1194,3 +1194,29 @@ body{overflow-y:auto!important;overscroll-behavior-y:auto!important}
 .dedicatedPageOverlay .veterinaryHomeContent{height:auto!important;min-height:calc(100dvh - 68px)!important;overflow:visible!important}
 .panelOverlay{overflow-y:auto!important;overflow-x:hidden!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important}
 .panelOverlay>.customerPanel{max-height:none!important;min-height:100%!important;overflow:visible!important;touch-action:auto!important}
+
+/* COMMAND C — FINAL UI / VISUAL NORMALIZATION
+   Keep the latest visual system consistent across desktop, tablet and mobile. */
+*,*::before,*::after{box-sizing:border-box}
+button,input,select,textarea{font:inherit}
+button{appearance:none;-webkit-appearance:none}
+img{max-width:100%;height:auto}
+.product,.categoryProductCard,.veterinaryDivisionCard,.veterinaryFeaturedCard,.miniProduct{min-width:0}
+.product h3,.categoryProductCard b,.veterinaryFeaturedCard b,.miniProduct b{overflow-wrap:anywhere;word-break:break-word}
+.productThumb{display:grid!important;place-items:center!important;flex:0 0 64px!important;width:64px!important;height:64px!important;padding:5px!important;overflow:hidden!important;border-radius:12px!important;background:#fff!important;box-sizing:border-box!important}
+.productThumb img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;border-radius:8px!important}
+.categoryProductImage,.veterinaryFeaturedImage{overflow:hidden!important;display:grid!important;place-items:center!important}
+.categoryProductImage .productImageInner,.veterinaryFeaturedImage .productImageInner{width:100%!important;height:100%!important}
+.veterinaryDivisionCard,.veterinaryFeaturedCard{overflow:hidden!important;text-align:left!important}
+.veterinaryDivisionCard>*{min-width:0}
+.mobileBottom{display:flex!important;align-items:stretch!important;justify-content:space-around!important}
+.mobileBottom button{display:flex!important;flex:1 1 0!important;min-width:0!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:3px!important;white-space:nowrap!important}
+.mobileBottom button span{max-width:100%!important;overflow:hidden!important;text-overflow:ellipsis!important}
+@media(max-width:700px){
+ .categoryProductCard{grid-template-columns:58px minmax(0,1fr) 18px!important;gap:10px!important}
+ .categoryProductImage{width:58px!important;height:58px!important}
+ .veterinaryFeaturedCard{min-width:0!important}
+ .product{min-width:0!important}
+ .productImg{max-width:100%!important}
+ .mobileBottom{padding-bottom:max(8px,env(safe-area-inset-bottom))!important}
+}
