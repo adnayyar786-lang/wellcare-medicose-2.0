@@ -42,3 +42,50 @@ main>*{min-width:0}
  header .logo .brandName b{font-size:14px}
  header .headerAccount .account,header .headerAccount .cart{padding:6px}
 }
+
+/* LOGO WORDMARK FIX — the SVG already contains WELLCARE + MEDICOSE */
+header .top .logo{
+  flex:0 0 225px!important;
+  width:225px!important;
+  min-width:225px!important;
+  max-width:225px!important;
+  height:58px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  overflow:hidden!important;
+  position:relative!important;
+}
+header .top .logo img{
+  display:block!important;
+  position:static!important;
+  width:215px!important;
+  height:56px!important;
+  max-width:215px!important;
+  max-height:56px!important;
+  min-width:0!important;
+  min-height:0!important;
+  flex:0 0 215px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  margin:0!important;
+  padding:0!important;
+}
+header .top .logo .brandName{display:none!important}
+@media(max-width:1050px){
+  header .top .logo{flex:0 0 205px!important;width:205px!important;min-width:205px!important;max-width:205px!important}
+  header .top .logo img{width:198px!important;height:53px!important;max-width:198px!important;max-height:53px!important;flex-basis:198px!important}
+}
+@media(max-width:700px){
+  header .top .logo{flex:1 1 auto!important;width:auto!important;min-width:0!important;max-width:190px!important;height:48px!important}
+  header .top .logo img{width:180px!important;height:46px!important;max-width:180px!important;max-height:46px!important;flex-basis:180px!important}
+}
+@media(max-width:390px){
+  header .top .logo{max-width:165px!important;height:45px!important}
+  header .top .logo img{width:158px!important;height:42px!important;max-width:158px!important;max-height:42px!important;flex-basis:158px!important}
+}
