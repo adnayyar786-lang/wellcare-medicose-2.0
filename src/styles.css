@@ -5,3 +5,56 @@
 /* Refreshed storefront navigation */
 .cameraBtn{width:38px;height:38px;display:grid;place-items:center;color:#087f4d;cursor:pointer;position:relative;flex:0 0 auto}.cameraBtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}.categorySlider{display:flex;align-items:center;gap:10px;overflow-x:auto;padding:12px max(20px,4vw);background:#fff;border-bottom:1px solid #e8eeea;scrollbar-width:none}.categorySlider::-webkit-scrollbar,.brands::-webkit-scrollbar{display:none}.categorySlider b{color:#087f4d;white-space:nowrap;margin-right:5px}.categorySlider button{border:1px solid #dfe8e2;background:#f7faf8;border-radius:22px;padding:8px 16px;white-space:nowrap;font-weight:700;color:#435048}.brandSlider{margin-top:34px}.brands{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.brands button{min-width:135px;height:70px;border:1px solid #e0e9e3;background:#fff;border-radius:15px;font-size:15px;font-weight:850;color:#087f4d;box-shadow:0 5px 18px #173b2908}.profileAvatar{width:70px;height:70px;border-radius:50%;background:#e9f7ef;color:#087f4d;display:grid;place-items:center;margin:0 auto}.profileAvatar svg{width:32px;height:32px}.profileGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.profileGrid button{border:1px solid #e0e8e3;background:#fff;border-radius:12px;padding:15px 10px;display:flex;flex-direction:column;align-items:center;gap:7px;font-weight:750;color:#34433a}.profileGrid button svg{color:#087f4d}.bottomNav{display:none}
 @media(max-width:700px){body{padding-bottom:72px}.bottomNav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;height:68px;background:#fff;border-top:1px solid #dfe8e2;z-index:50;box-shadow:0 -5px 20px #173b2910}.bottomNav button{border:0;background:transparent;color:#718078;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;font-weight:750}.bottomNav button svg{width:20px;height:20px}.bottomNav button.active{color:#087f4d}.categorySlider{padding-left:14px;padding-right:14px}.brands button{min-width:120px}.profileGrid{grid-template-columns:1fr 1fr}.cameraBtn{margin-left:2px}}
+
+
+/* WELLCARE MEDICOSE 2.0 — premium pharmacy visual system */
+:root{
+ --wc-green:#087f4d;--wc-deep:#05613b;--wc-teal:#0d9b8a;--wc-blue:#2777c9;
+ --wc-mint:#e9f8f1;--wc-sky:#edf6ff;--wc-cream:#fbfdfb;--wc-ink:#172a21;
+ --wc-muted:#68766e;--wc-line:#dfeae4;--wc-shadow:rgba(22,62,43,.09);
+}
+html,body{background:linear-gradient(180deg,#f8fbf9 0%,#f5f9f7 100%);color:var(--wc-ink)}
+.top{height:80px;padding:0 max(20px,5vw);border-bottom:1px solid rgba(8,127,77,.12);box-shadow:0 5px 24px var(--wc-shadow);position:relative;z-index:30}
+.logo b{color:var(--wc-green)}
+.logo span,.loginLogo{background:linear-gradient(135deg,var(--wc-green),var(--wc-teal));box-shadow:0 8px 20px rgba(8,127,77,.18)}
+.search{height:48px;background:#fff;border:1px solid #dce8e1;border-radius:14px;box-shadow:0 5px 18px rgba(20,60,42,.05)}
+.search:focus-within{border-color:rgba(8,127,77,.38);box-shadow:0 0 0 4px rgba(8,127,77,.07),0 8px 22px rgba(20,60,42,.07)}
+nav{background:rgba(255,255,255,.96);border-bottom-color:rgba(8,127,77,.10)}
+nav a:hover{color:var(--wc-green)}
+.categorySlider{background:#fff;border-bottom-color:rgba(8,127,77,.10);box-shadow:0 4px 15px rgba(20,60,42,.035)}
+.categorySlider button{background:#f7fbf9;border-color:#dce9e2}
+.categorySlider button:hover{background:var(--wc-mint);border-color:#b7d9c8;color:var(--wc-deep)}
+main{padding-top:28px}
+.trustbar span{color:#52645a}
+.hero{background:
+ radial-gradient(circle at 86% 18%,rgba(39,119,201,.10),transparent 14rem),
+ linear-gradient(120deg,#e6f8ee 0%,#f5fbf8 58%,#eef7ff 100%);
+ border:1px solid rgba(8,127,77,.10);box-shadow:0 16px 45px rgba(18,71,48,.06)}
+.eyebrow{color:var(--wc-green)}
+.hero h1{color:var(--wc-ink)}
+.hero em{color:var(--wc-green)}
+.primary{background:linear-gradient(135deg,var(--wc-green),var(--wc-teal));box-shadow:0 9px 20px rgba(8,127,77,.16)}
+.primary:hover{background:linear-gradient(135deg,var(--wc-deep),var(--wc-green))}
+.outline{border-color:#b9d9ca;color:var(--wc-deep);background:#fff}
+.heroCard,.floatCard,.deliveryCard{border:1px solid rgba(8,127,77,.10);box-shadow:0 18px 45px rgba(18,71,48,.10)}
+.medicineOrb{box-shadow:0 25px 60px rgba(18,104,59,.14);border:8px solid rgba(255,255,255,.75)}
+.quick button,.cat,.product,.why,.benefits{border-color:var(--wc-line);box-shadow:0 6px 20px rgba(20,60,42,.035)}
+.quick button:hover,.cat:hover,.product:hover{border-color:#b8dac9;box-shadow:0 12px 28px rgba(20,60,42,.08)}
+.quick button>span{filter:saturate(.9)}
+.productImg{background:linear-gradient(145deg,#f1f8f4,#eef7ff)}
+.heart:hover{background:var(--wc-mint);color:var(--wc-green)}
+.buy button{border-color:#9ecdb5;color:var(--wc-deep);background:#f7fcf9}
+.buy button:hover{background:var(--wc-mint)}
+.rx{background:#fff3f1;color:#b42318;border:1px solid #ffd8d2}
+.rating{color:#b37b00}
+.rxBanner{background:linear-gradient(110deg,#e9f8ef,#f0f8ff);border:1px solid rgba(8,127,77,.08)}
+.iconBox{background:#fff;box-shadow:0 6px 18px rgba(20,60,42,.06)}
+footer{background:linear-gradient(135deg,#123d2d,#0c5542);border-top:4px solid rgba(255,255,255,.08)}
+.modal{border:1px solid rgba(8,127,77,.10);box-shadow:0 28px 80px rgba(16,34,25,.20)}
+.google{box-shadow:0 4px 14px rgba(20,60,42,.04)}
+.fulfil button.selected{border-color:var(--wc-green);background:var(--wc-mint);box-shadow:0 0 0 3px rgba(8,127,77,.07)}
+.toast{box-shadow:0 12px 30px rgba(16,34,25,.16)}
+@media(max-width:700px){
+ .top{height:70px}.hero{border-radius:20px}.quick button{background:rgba(255,255,255,.97)}
+ .products{gap:10px}.product{border-radius:15px}.productImg{height:126px}
+}
