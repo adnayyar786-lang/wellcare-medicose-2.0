@@ -1,0 +1,7 @@
+export const CATEGORY_GROUPS=[
+ {icon:"💊",title:"Medicines & Health",items:["All Medicines","Pain Relief","Fever & Headache","Cough & Cold","Allergy","Diabetes","Heart Care","Blood Pressure","Cholesterol","Digestive","Acidity","Liver Care","Kidney Care","Respiratory Care","Anti Infective","Skin Care","Eye & Ear Care","Neurology","Mental Wellness","Thyroid","Bone & Joint","Women's Care","Men's Health","First Aid","Vaccines"]},
+ {icon:"🧴",title:"Personal & Family Care",items:["Vitamins","Vitamins & Supplements","Nutrition","Baby Care","Women Care","Men Care","Elderly Care","Skin Care","Hair Care","Oral Care","Ayurveda","Homeopathy","Sexual Wellness","Feminine Hygiene","Health Devices"]},
+ {icon:"🏷️",title:"Top Brands",items:["Mankind","Dr. Reddy's","Dr. Reddy’s","Cipla","Apollo","Abbott","Sun Pharma","Dabur","Himalaya","Tata 1mg","Wellcare","GSK","Sanofi","Torrent","Alkem","Glenmark","Macleods","Zydus","USV","Intas"]},
+ {icon:"🐾",title:"Veterinary & Pet Care",items:["Pet Care","Dogs","Cats","Puppy","Kitten","Dog Food","Cat Food","Pet Supplements","Pet Grooming","Tick & Flea","Deworming"]}
+];
+export const ALL_CATEGORIES=[...new Set(CATEGORY_GROUPS.flatMap(x=>x.items))];
