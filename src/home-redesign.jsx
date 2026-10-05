@@ -8,7 +8,7 @@ const HEROES=[
  {eyebrow:"HEALTH • WELLNESS • CARE",title:"Everyday essentials\nfrom trusted brands.",copy:"Discover medicines, personal care, nutrition and healthcare products.",cta:"Browse Categories",tone:"cream",icon:"🩺"}
 ];
 const SERVICES=[["💊","Pharmacy","Medicines"],["✦","Latest","New arrivals"],["🐾","Petcare","Pet health"],["🩺","Consult","Doctor help"],["☼","Wellness","Daily health"],["⌁","Health Devices","Care at home"]];
-const CATEGORIES=[["Fever & Headache","🌡️"],["Pain Relief","💊"],["Cough & Cold","🌿"],["Diabetes","🩺"],["Heart Care","❤️"],["Gut & Stomach","◉"],["Vitamins & Supplements","🍊"],["Skin Care","🧴"],["Hair Care","🧴"],["Baby Care","🍼"],["Women Care","♀"],["First Aid","✚"]];
+const CATEGORIES=[["Fever & Headache","🌡️"],["Pain Relief","💊"],["Cough & Cold","🌿"],["Diabetes","🩺"],["Heart Care","❤️"],["Blood Pressure","🫀"],["Cholesterol","🧬"],["Digestive","◉"],["Acidity","🔥"],["Respiratory Care","🫁"],["Anti Infective","🦠"],["Allergy","🤧"],["Vitamins & Supplements","🍊"],["Nutrition","🥛"],["Bone & Joint","🦴"],["Skin Care","🧴"],["Hair Care","💇"],["Eye & Ear Care","👁️"],["Baby Care","🍼"],["Women Care","♀"],["Men's Health","♂"],["First Aid","✚"],["Ayurveda","🌿"],["Health Devices","🩺"]];
 const BRANDS=["Mankind","Dr. Reddy's","Cipla","Abbott","Sun Pharma","Dabur","Himalaya","Apollo"];
 const VET=[["DOG CARE","🐶"],["CAT CARE","🐱"],["Puppy","🐾"],["Kitten","🐾"],["Pet Food","🥣"],["Supplements","🧴"],["Grooming","✂️"],["Tick & Flea","🪲"],["Deworming","◉"]];
 
