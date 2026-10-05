@@ -1065,3 +1065,7 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
 .shopSliderTrack,.diagnosticSliderTrack{overscroll-behavior-x:contain!important;scroll-behavior:smooth!important}
 .shopSliderTrack>button,.diagnosticSliderTrack>button{user-select:none!important;-webkit-user-select:none!important}
 .wcServiceRail{display:none!important}
+
+
+/* Section 11 · Stock availability */
+.wcStockBadge{display:inline-flex!important;width:max-content!important;margin-top:5px!important;padding:4px 8px!important;border-radius:999px!important;font-size:10px!important;font-weight:800!important}.wcStockBadge.in{background:#edf8f1!important;color:#167247!important}.wcStockBadge.low{background:#fff7df!important;color:#9a6800!important}.wcStockBadge.out{background:#fff0f0!important;color:#b42318!important}.wcDetailStock{display:inline-flex;align-items:center;width:max-content;margin:12px 0 4px;padding:7px 10px;border-radius:9px;font-size:12px;font-weight:800}.wcDetailStock.in{background:#edf8f1;color:#167247}.wcDetailStock.low{background:#fff7df;color:#9a6800}.wcDetailStock.out{background:#fff0f0;color:#b42318}.wcDetailFacts{display:flex;flex-wrap:wrap;gap:8px}.wcDetailFacts span{padding:7px 9px;border-radius:8px;background:#f6faf8;font-size:11px;color:#50615a}
