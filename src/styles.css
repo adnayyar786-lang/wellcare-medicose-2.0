@@ -993,3 +993,23 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
   .dedicatedSectionPage .categoryProductGrid{grid-template-columns:1fr!important;gap:10px!important}
   .dedicatedSectionPage .categoryProductCard{min-height:104px!important}
 }
+
+/* SECTION 4 — CATEGORIES HUB IS ALSO A REAL PAGE */
+.dedicatedCategoryHubPage{
+  position:relative!important;width:100%!important;height:100%!important;min-height:100dvh!important;
+  margin:0!important;border:0!important;border-radius:0!important;background:#fbfdfc!important;
+  box-shadow:none!important;overflow-y:auto!important;overflow-x:hidden!important;
+  overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important;
+}
+.dedicatedCategoryHubPage .panelHead{
+  position:sticky!important;top:0!important;z-index:10!important;display:flex!important;align-items:center!important;
+  min-height:72px!important;padding:14px clamp(16px,4vw,56px)!important;box-sizing:border-box!important;
+  background:rgba(251,253,252,.96)!important;backdrop-filter:blur(14px)!important;border-bottom:1px solid #dfeae4!important;
+}
+.dedicatedCategoryHubPage .panelContent{
+  width:min(1440px,100%)!important;margin:0 auto!important;padding:20px clamp(16px,4vw,56px) 80px!important;
+}
+@media(max-width:700px){
+ .dedicatedCategoryHubPage .panelHead{min-height:64px!important;padding:10px 14px!important}
+ .dedicatedCategoryHubPage .panelContent{padding:12px 12px 76px!important}
+}
