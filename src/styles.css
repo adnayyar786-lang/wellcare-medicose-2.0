@@ -505,3 +505,13 @@ body:has(.sideDrawer),body:has(.panelOverlay){overscroll-behavior:none}
 .drawerBody{min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
 .panelOverlay{overscroll-behavior:contain;overscroll-behavior-y:contain;overflow:hidden;touch-action:none}
 .customerPanel{min-height:0;overscroll-behavior:contain;overflow-y:auto;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+
+/* MOBILE/NORMAL SEARCH + EXPLORE STACK FIX */
+.categorySlider{position:relative!important;z-index:45!important;display:flex!important;align-items:center!important;gap:8px!important;box-sizing:border-box!important;clear:both!important}
+.headerSearchRow{position:relative!important;z-index:50!important}
+@media(max-width:700px){
+ .headerSearchRow{height:auto!important;margin:0!important;padding:7px 10px 9px!important}
+ .categorySlider{height:48px!important;min-height:48px!important;margin:0!important;padding:6px 10px!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;background:#fff!important;border-top:1px solid #edf3ef!important;border-bottom:1px solid #dfeae4!important}
+ .categorySlider b,.categorySlider button{position:relative!important;flex:0 0 auto!important}
+ .categorySlider button{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:34px!important;padding:0 12px!important}
+}
