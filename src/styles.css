@@ -1171,3 +1171,16 @@ body{overflow-x:hidden;overflow-y:auto}
 
 /* COMMAND 1 FINAL — normalise empty-state icons */
 .panelEmpty .emptyStateIcon{width:42px!important;height:42px!important;margin:0 auto 10px!important;color:#087a5e!important;display:block!important}
+
+/* COMMAND B — SCROLL/TOUCH STABILITY FINAL
+   Explicitly isolate vertical page/panel scrolling from horizontal rails and bottom navigation. */
+html,body,#root{width:100%;min-height:100%;overflow-x:hidden!important}
+html{overflow-y:auto!important;overscroll-behavior-y:auto!important}
+body{overflow-y:auto!important;overscroll-behavior-y:auto!important}
+#root{overflow-y:visible!important}
+.panelOverlay,.dedicatedPageOverlay{position:fixed!important;inset:0!important;overflow:hidden!important;touch-action:auto!important;-webkit-overflow-scrolling:touch!important}
+.panelOverlay .customerPanel,.panelOverlay .dedicatedSectionPage,.panelOverlay .dedicatedCategoryHubPage,.panelOverlay .dedicatedProfilePage,.panelOverlay .dedicatedVeterinaryPage,.dedicatedPageOverlay>.dedicatedSectionPage,.dedicatedPageOverlay>.dedicatedCategoryHubPage,.dedicatedPageOverlay>.dedicatedProfilePage,.dedicatedPageOverlay>.dedicatedVeterinaryPage{height:100%!important;min-height:0!important;max-height:100%!important;overflow-y:auto!important;overflow-x:hidden!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important}
+.panelContent,.drawerBody{min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important}
+.veterinaryDivisionGrid,.brands{touch-action:pan-x!important;overscroll-behavior-x:contain!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important}
+.mobileBottom{touch-action:manipulation!important;pointer-events:auto!important}
+.mobileBottom button{touch-action:manipulation!important;pointer-events:auto!important}
