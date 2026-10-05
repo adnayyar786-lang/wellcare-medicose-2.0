@@ -5,7 +5,7 @@ import{googleLogin,signOut}from"./lib/auth";
 import{Store,Users,ShoppingBag,IndianRupee,Plus,LogOut,ShieldCheck,MapPin,Truck,PackageCheck,RefreshCw}from"lucide-react";
 import"./portal.css";
 
-function Portal(){
+export default function Portal(){
  const[session,setSession]=useState(null),[role,setRole]=useState(null),[branches,setBranches]=useState([]),[selected,setSelected]=useState(""),[staff,setStaff]=useState([]),[orders,setOrders]=useState([]),[busy,setBusy]=useState(true),[error,setError]=useState(""),[showBranch,setShowBranch]=useState(false),[showInvite,setShowInvite]=useState(false);
  const[branch,setBranch]=useState({name:"",code:"",phone:"",address:"",city:"Aligarh",state:"Uttar Pradesh",pincode:""});
  const[email,setEmail]=useState("");
