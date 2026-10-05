@@ -5,7 +5,7 @@ const PRODUCTION_REDIRECT_URL = "https://wellcare-medicose-2-0.adnayyar786.worke
 export async function googleLogin(){
   return supabase.auth.signInWithOAuth({
     provider:"google",
-    options:{redirectTo:PRODUCTION_REDIRECT_URL}
+    options:{redirectTo:PRODUCTION_REDIRECT_URL,queryParams:{prompt:"consent"}}
   });
 }
 
