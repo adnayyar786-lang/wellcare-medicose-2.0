@@ -13,12 +13,12 @@ const BRANDS=["Mankind","Dr. Reddy's","Cipla","Abbott","Sun Pharma","Dabur","Him
 const VET=[["DOG CARE","🐶"],["CAT CARE","🐱"],["Puppy","🐾"],["Kitten","🐾"],["Pet Food","🥣"],["Supplements","🧴"],["Grooming","✂️"],["Tick & Flea","🪲"],["Deworming","◉"]];
 
 function ProductRail({title,sub,items,imageRenderer,onDetail,onAdd,onWish,wishlist}){
- return <section className="wcRailSection"><div className="wcSectionHead"><div><span className="wcEyebrow">WELLCARE PICKS</span><h2>{title}</h2>{sub&&<p>{sub}</p>}</div><button className="wcViewAll" onClick={()=>items[0]&&onDetail(items[0])}>View all <ArrowRight size={16}/></button></div><div className="wcProductRail">{items.map(p=><article className="wcProductCard" key={p.id} onClick={()=>onDetail(p)}><button className={"wcWish "+(wishlist.some(x=>x.id===p.id)?"liked":"")} onClick={e=>{e.stopPropagation();onWish(p)}}><Heart size={17} fill={wishlist.some(x=>x.id===p.id)?"currentColor":"none"}/></button><div className="wcProductMedia"><span className="wcBrandBadge">{p.b||"Wellcare"}</span>{imageRenderer(p)}{p.mrp&&p.mrp>p.p&&<span className="wcDiscount">{Math.round((1-p.p/p.mrp)*100)}% OFF</span>}</div><div className="wcProductMeta"><small>{p.c||"Healthcare"}</small><h3>{p.n}</h3><p>{p.salt||"Trusted healthcare product"}</p><div className="wcRating">★ 4.8 <span>· Genuine</span></div><div className="wcPriceRow"><div><b>₹{p.p}</b>{p.mrp&&<del>₹{p.mrp}</del>}</div><button className="wcAdd" disabled={p.stock===0} onClick={e=>{e.stopPropagation();onAdd(p)}}>{p.stock===0?"Out of stock":<><Plus size={15}/> Add</>}</button></div></div></article>)}</div></section>
+ return <section className="wcRailSection"><div className="wcSectionHead"><div><span className="wcEyebrow">WELLCARE PICKS</span><h2>{title}</h2>{sub&&<p>{sub}</p>}</div><button className="wcViewAll" onClick={()=>items[0]&&onDetail(items[0])}>View all <ArrowRight size={16}/></button></div><div className="wcProductRail">{items.map(p=><article className="wcProductCard" key={p.id} onClick={()=>onDetail(p)}><button className={"wcWish "+(wishlist.some(x=>x.id===p.id)?"liked":"")} onClick={e=>{e.stopPropagation();onWish(p)}}><Heart size={17} fill={wishlist.some(x=>x.id===p.id)?"currentColor":"none"}/></button><div className="wcProductMedia"><span className="wcBrandBadge">{p.b||"Wellcare"}</span>{imageRenderer(p)}{p.mrp&&p.mrp>p.p&&<span className="wcDiscount">{Math.round((1-p.p/p.mrp)*100)}% OFF</span>}</div><div className="wcProductMeta"><small>{p.c||"Healthcare"}</small><span className={"wcStockBadge "+((Number(p.stock??p.inventory??p.qty??999999)<=0)?"out":(Number(p.stock??p.inventory??p.qty??999999)<=5?"low":"in"))}>{Number(p.stock??p.inventory??p.qty??999999)<=0?"Out of stock":Number(p.stock??p.inventory??p.qty??999999)<=5?`Only ${Number(p.stock??p.inventory??p.qty)} left`:`In stock · ${Number(p.stock??p.inventory??p.qty)} available`}</span><h3>{p.n}</h3><p>{p.salt||"Trusted healthcare product"}</p><div className="wcRating">★ 4.8 <span>· Genuine</span></div><div className="wcPriceRow"><div><b>₹{p.p}</b>{p.mrp&&<del>₹{p.mrp}</del>}</div><button className="wcAdd" disabled={p.stock===0} onClick={e=>{e.stopPropagation();onAdd(p)}}>{p.stock===0?"Out of stock":<><Plus size={15}/> Add</>}</button></div></div></article>)}</div></section>
 }
 
 function MedicineDetails({product,allProducts,imageRenderer,onBack,onSelect,onAdd,wishlist,onWish}){
  const related=allProducts.filter(x=>x.id!==product.id&&(x.b===product.b||x.c===product.c||x.salt===product.salt)).slice(0,8);
- const discount=product.mrp&&product.mrp>product.p?Math.round((1-product.p/product.mrp)*100):0;
+ const discount=product.mrp&&product.mrp>product.p?Math.round((1-product.p/product.mrp)*100):0; const stock=Number(product.stock??product.inventory??product.qty??999999); const stockLabel=stock<=0?"Out of stock":stock<=5?`Only ${stock} left`:`In stock · ${stock} available`;
  return <section className="wcProductDetailView">
   <div className="wcDetailTop"><button className="wcBackButton" onClick={onBack}><ChevronLeft size={18}/> Back to medicines</button><span>PRODUCT DETAILS</span></div>
   <div className="wcDetailStoreBar"><div><span className="wcStoreDot">●</span><div><b>Wellcare Medicose</b><small>Selected store · genuine pharmacy stock</small></div></div><span className="wcStoreStatus">IN STOCK</span></div>
@@ -32,14 +32,14 @@ function MedicineDetails({product,allProducts,imageRenderer,onBack,onSelect,onAd
     <h1>{product.n}</h1>
     <p className="wcDetailSalt">{product.salt||"Trusted healthcare product"} · {product.c||"Healthcare"}</p>
     <div className="wcDetailRating"><b>★ 4.8</b><span>126 reviews</span><em>✓ Genuine</em></div>
-    <div className="wcDetailPrice"><b>₹{product.p}</b>{product.mrp&&<del>₹{product.mrp}</del>}{discount>0&&<em>{discount}% OFF</em>}</div>
+    <div className={"wcDetailStock "+(stock<=0?"out":stock<=5?"low":"in")}>● {stockLabel}</div><div className="wcDetailPrice"><b>₹{product.p}</b>{product.mrp&&<del>₹{product.mrp}</del>}{discount>0&&<em>{discount}% OFF</em>}</div>
     {product.rx&&<div className="wcRxNotice">Prescription required · Upload your prescription at checkout.</div>}
     <div className="wcDeliveryTitle">Get it your way</div>
     <div className="wcDeliveryChoices">
       <button className="selected"><span>🚚</span><div><b>Home delivery</b><small>Estimated 20–30 min</small></div><strong>✓</strong></button>
       <button><span>🏪</span><div><b>Store pickup</b><small>Ready in 10–15 min</small></div><strong>›</strong></button>
     </div>
-    <div className="wcDetailFacts"><span>✓ Genuine medicine</span><span>✓ Secure checkout</span><span>✓ Pickup + home delivery</span></div>
+    <div className="wcDetailFacts"><span>📦 Stock: {stock<=0?"Unavailable":stock+" unit"+(stock===1?"":"s")+" available"}</span><span>✓ Genuine medicine</span><span>✓ Secure checkout</span><span>✓ Pickup + home delivery</span></div>
     <div className="wcDetailActions"><button className="wcDetailAdd" disabled={product.stock===0} onClick={()=>onAdd(product)}><Plus size={17}/> {product.stock===0?"Out of stock":"Add to Cart · ₹"+product.p}</button><button className={"wcDetailWish "+(wishlist.some(x=>x.id===product.id)?"liked":"")} onClick={()=>onWish(product)}>♥</button></div>
    </div>
   </div>
