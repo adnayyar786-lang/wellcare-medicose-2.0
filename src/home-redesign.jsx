@@ -1,3 +1,4 @@
+/* CF BUILD TRIGGER: invalid newline escape fixed; keep homepage isolated. */
 import React,{useEffect,useMemo,useState}from"react";
 import{ArrowRight,ChevronLeft,ChevronRight,Heart,Plus,ShieldCheck,Truck,Upload}from"lucide-react";
 
