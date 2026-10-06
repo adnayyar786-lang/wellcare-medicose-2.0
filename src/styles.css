@@ -1286,3 +1286,36 @@ img{max-width:100%;height:auto}
  .cartInterfacePanel,.ordersInterfacePanel{width:calc(100vw - 24px)!important}
  .orderMetaGrid{grid-template-columns:repeat(2,1fr)!important}
 }
+
+/* HOMEPAGE SECTION 1 — HEADER + SEARCH POLISH */
+header{background:#fff!important;position:relative!important;z-index:60!important}
+header .top{min-height:68px!important;padding:10px max(18px,3vw)!important;gap:12px!important}
+.logo{flex:0 0 auto!important}
+.logo img{width:150px!important;height:auto!important;max-height:42px!important;object-fit:contain!important}
+.location{min-width:190px!important;max-width:260px!important;border:1px solid #dbe8e2!important;border-radius:12px!important;background:#f8fbfa!important;padding:8px 11px!important}
+.headerAccount{gap:8px!important}
+.account,.cart{border-radius:11px!important}
+.desktopNav{padding:8px max(18px,3vw)!important;border-top:1px solid #eef3f0!important;border-bottom:1px solid #e3ece7!important;background:#fff!important}
+.headerSearchRow{padding:12px max(18px,3vw) 15px!important;background:linear-gradient(180deg,#fff 0%,#f7fbf9 100%)!important}
+.searchWrap{max-width:1040px!important;margin:0 auto!important}
+.search{height:54px!important;border:1.5px solid #cbded5!important;border-radius:16px!important;background:#fff!important;box-shadow:0 7px 24px rgba(20,73,56,.08)!important}
+.search:focus-within{border-color:#087a5e!important;box-shadow:0 0 0 4px rgba(8,122,94,.08),0 9px 28px rgba(20,73,56,.1)!important}
+.search input{font-size:13px!important}
+.search>svg{color:#087a5e!important}
+.voiceBtn,.cameraBtn{border-radius:10px!important}
+.shopSlider,.diagnosticSlider{border-bottom:1px solid #e7efeb!important;background:#fff!important}
+@media(max-width:700px){
+ header .top{min-height:56px!important;padding:7px 10px!important;gap:7px!important}
+ .logo img{width:112px!important;max-height:34px!important}
+ .location{min-width:0!important;max-width:120px!important;padding:6px 7px!important}
+ .location small{font-size:7px!important}
+ .location strong{font-size:9px!important;max-width:82px!important}
+ .headerAccount{gap:3px!important}
+ .account{padding:7px!important}
+ .account span{display:none!important}
+ .cart{padding:7px!important}
+ .headerSearchRow{padding:8px 10px 11px!important}
+ .search{height:48px!important;border-radius:14px!important}
+ .search input{font-size:11px!important}
+ .shopSlider,.diagnosticSlider{margin-left:0!important;margin-right:0!important}
+}
