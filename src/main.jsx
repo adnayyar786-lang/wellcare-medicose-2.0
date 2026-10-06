@@ -9,47 +9,62 @@ function isRenderableImageUrl(value){
   const v=value.trim();
   return v.startsWith("http://")||v.startsWith("https://")||v.startsWith("blob:")||v.startsWith("data:image/")||v.startsWith("/");
 }
+function getProductImageSources(product){
+  if(!product)return [];
+  const sources=[];
+  const add=value=>{
+    if(!isRenderableImageUrl(value))return;
+    const url=String(value).trim();
+    if(url&&!sources.includes(url))sources.push(url);
+  };
+  add(product.img);
+  if(Array.isArray(product.images))product.images.forEach(add);
+  add(productImages[product.n]||"");
+  return sources;
+}
 function resolveProductImage(product){
-  if(!product)return "";
-  if(isRenderableImageUrl(product.img))return product.img.trim();
-  if(Array.isArray(product.images)){
-    const galleryImage=product.images.find(isRenderableImageUrl);
-    if(galleryImage)return String(galleryImage).trim();
-  }
-  const mapped=productImages[product.n]||"";
-  return isRenderableImageUrl(mapped)?String(mapped).trim():"";
+  return getProductImageSources(product)[0]||"";
 }
 function ProductImage({product,eager=false,category=false}){
-  const [src,setSrc]=useState(()=>resolveProductImage(product));
+  const sources=useMemo(()=>getProductImageSources(product),[product?.id,product?.n,product?.b,product?.salt,product?.c,product?.img,product?.images]);
+  const [sourceIndex,setSourceIndex]=useState(0);
+  const [src,setSrc]=useState(()=>sources[0]||"");
   const [failed,setFailed]=useState(false);
   const ref=useRef(null);
   useEffect(()=>{
     let cancelled=false;
-    const url=resolveProductImage(product);
+    const url=sources[0]||"";
+    setSourceIndex(0);
     setFailed(false);
-    if(url&&eager){
-      setSrc(url);
-      return()=>{cancelled=true};
-    }
+    setSrc(url);
+    if(!url)return()=>{cancelled=true};
+    if(eager)return()=>{cancelled=true};
     const el=ref.current;
-    if(!el){
-      setSrc(url);
-      return()=>{cancelled=true};
-    }
-    if(!url){
-      setSrc("");
-      return()=>{cancelled=true};
-    }
+    if(!el)return()=>{cancelled=true};
     const load=()=>{if(!cancelled){setSrc(url);setFailed(false)}};
     const obs=new IntersectionObserver(entries=>{
       if(entries.some(x=>x.isIntersecting)){load();obs.disconnect()}
     },{rootMargin:"500px"});
     obs.observe(el);
     return()=>{cancelled=true;obs.disconnect()};
-  },[product?.id,product?.n,product?.b,product?.salt,product?.c,product?.img,product?.images,eager]);
+  },[sources,eager]);
+  const handleImageError=()=>{
+    setSourceIndex(prev=>{
+      const next=prev+1;
+      const nextUrl=sources[next]||"";
+      if(nextUrl){
+        setSrc(nextUrl);
+        setFailed(false);
+      }else{
+        setSrc("");
+        setFailed(true);
+      }
+      return next;
+    });
+  };
   return <div ref={ref} className="productImageInner" data-image-state={src&&!failed?"ready":"fallback"}>
     {src&&!failed
-      ? <img src={src} alt={product?.n||"Product"} loading={eager?"eager":"lazy"} decoding="async" referrerPolicy="no-referrer" onError={()=>{setFailed(true);setSrc("")}}/>
+      ? <img src={src} alt={product?.n||"Product"} loading={eager?"eager":"lazy"} decoding="async" referrerPolicy="no-referrer" onError={handleImageError}/>
       : category
         ? <span className="categoryImageFallback"><Pill size={22}/></span>
         : <span className="productImageFallback"><Pill size={25}/></span>}
