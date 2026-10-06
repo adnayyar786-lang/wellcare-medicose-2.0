@@ -1333,3 +1333,12 @@ header .voiceBtn,header .cameraBtn{background:#edf8f4!important;border:1px solid
  header .search{height:51px!important;border-width:2px!important;border-radius:15px!important;box-shadow:0 0 0 3px rgba(8,122,94,.08),0 7px 20px rgba(8,122,94,.12)!important}
  header .search input{font-size:11px!important}
 }
+
+
+/* PRODUCT IMAGE STABILITY — Section 1 cleanup */
+.productImageInner{width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:#f7faf9!important;box-sizing:border-box!important}
+.productImageInner img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;border:0!important;outline:0!important}
+.productImageFallback,.categoryImageFallback{width:46px!important;height:46px!important;border-radius:14px!important;display:grid!important;place-items:center!important;color:#087a5e!important;background:#edf7f3!important;border:1px solid #d7e8e0!important;flex:none!important}
+.detailHeroImage .productImageInner{background:linear-gradient(145deg,#f4f9f7,#f2f7fb)!important}
+.productGalleryHero>img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+.productThumb img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
