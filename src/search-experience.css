@@ -23,9 +23,8 @@
 @media(max-width:850px){.wcSearchResultList{grid-template-columns:1fr}.wcSearchResult{grid-template-columns:68px minmax(0,1fr) 18px}.wcSearchResultImage{width:68px;height:68px}.wcSearchDeliveryStrip{align-items:flex-start;flex-direction:column}.wcEtaChips{justify-content:flex-start}}
 @media(max-width:700px){.wcSearchExperience{width:100%;margin:0;border-radius:0 0 17px 17px}.wcSearchPanelHead{padding:14px 13px 11px}.wcSearchPanelHead h3{font-size:15px}.wcSearchPanelHead p{font-size:9px}.wcSearchResultList{padding:10px 11px;gap:8px}.wcSearchResult{padding:8px;border-radius:13px}.wcSearchResultInfo>b{font-size:11px}.wcSearchDeliveryStrip{padding:10px 12px}.wcEtaChips{width:100%}.wcEtaChips span{font-size:8px;padding:6px 8px}}
 
-
-/* SECTION 2 — search product image geometry */
-.wcSearchResultImage{position:relative;width:76px;height:76px;min-width:76px;flex:0 0 76px;display:grid;place-items:center;overflow:hidden;box-sizing:border-box;--product-image-padding:5px}
+/* SECTION 2 — search product image responsive geometry */
+.wcSearchResultImage{position:relative;width:76px;height:76px;min-width:76px;flex:0 0 76px;border-radius:11px;background:#f4f8f6;display:grid;place-items:center;overflow:hidden;box-sizing:border-box;--product-image-padding:5px}
 .wcSearchResultInfo{min-width:0;overflow:hidden}
 .wcSearchResultInfo>b,.wcSearchResultInfo>p,.wcSearchResultInfo>small{overflow:hidden;text-overflow:ellipsis}
 @media(max-width:850px){.wcSearchResultImage{width:68px;height:68px;min-width:68px;flex-basis:68px}}
