@@ -10,7 +10,7 @@ export const productImages={
   "Becosules":"https://positrarx.com/api/positrarx/98baa174-75cb-11ea-9988-02128ec5b234-becosules.jpg",
   "Supradyn Daily":"https://m.media-amazon.com/images/I/71o0s662YtL.jpg",
   "Honitus Sugar Free 100ml":"https://store.planetayurveda.com/cdn/shop/files/daburhonitus_6d4034dc-3587-4185-857d-de2189985cbd.png?v=1745649823",
-  "Limcee Vitamin C 500mg":"https://images.apollo247.in/pub/media/catalog/product/l/i/lim0003_1_june23.jpg?tr=q-80"
+  "Limcee Vitamin C 500mg":"https://images.apollo247.in/pub/media/catalog/product/l/i/lim0003_1_june23.jpg?tr=q-80",
   "Calpol 500":"https://onemg.gumlet.io/l_watermark_346%2Cw_690%2Ch_700/a_ignore%2Cw_690%2Ch_700%2Cc_pad%2Cq_auto%2Cf_auto/cropped/dpsh8z3rldqlg33kavbh.jpg",
   "Combiflam":"https://medihealthway.com/wp-content/uploads/2024/01/Combiflame-Stripe-of-20-Tablets-Pack-of-2-Strips.jpg",
   "Gelusil MPS":"https://positrarx.com/api/positrarx/7155c720-d4df-11eb-ac66-2d8af994f7f5-gelusil-mps-1422626572-10001168.jpg",
