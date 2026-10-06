@@ -24,65 +24,16 @@
 @media(max-width:700px){.wcSearchExperience{width:100%;margin:0;border-radius:0 0 17px 17px}.wcSearchPanelHead{padding:14px 13px 11px}.wcSearchPanelHead h3{font-size:15px}.wcSearchPanelHead p{font-size:9px}.wcSearchResultList{padding:10px 11px;gap:8px}.wcSearchResult{padding:8px;border-radius:13px}.wcSearchResultInfo>b{font-size:11px}.wcSearchDeliveryStrip{padding:10px 12px}.wcEtaChips{width:100%}.wcEtaChips span{font-size:8px;padding:6px 8px}}
 
 
-/* SEARCH SUGGESTION IMAGE OVERLAP FIX — keep product image inside its grid cell */
-.wcSearchExperience{position:relative!important;z-index:200!important;overflow:visible!important;isolation:isolate!important}
-.wcSearchResultList{position:relative!important;z-index:1!important;overflow:visible!important}
-.wcSearchResult{position:relative!important;z-index:1!important;overflow:hidden!important;min-height:96px!important;box-sizing:border-box!important}
-.wcSearchResult:hover{z-index:2!important}
-.wcSearchResultImage{
-  position:relative!important;
-  z-index:1!important;
-  width:76px!important;
-  height:76px!important;
-  min-width:76px!important;
-  max-width:76px!important;
-  min-height:76px!important;
-  max-height:76px!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  overflow:hidden!important;
-  box-sizing:border-box!important;
-}
-.wcSearchResultImage .productImageInner{
-  position:relative!important;
-  inset:auto!important;
-  width:100%!important;
-  height:100%!important;
-  min-width:0!important;
-  min-height:0!important;
-  max-width:100%!important;
-  max-height:100%!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  padding:5px!important;
-  margin:0!important;
-  overflow:hidden!important;
-  box-sizing:border-box!important;
-}
-.wcSearchResultImage .productImageInner img{
-  position:static!important;
-  display:block!important;
-  width:auto!important;
-  height:auto!important;
-  max-width:100%!important;
-  max-height:100%!important;
-  min-width:0!important;
-  min-height:0!important;
-  object-fit:contain!important;
-  object-position:center!important;
-  margin:0!important;
-  padding:0!important;
-}
-.wcSearchResultInfo{position:relative!important;z-index:2!important;min-width:0!important;overflow:hidden!important}
-.wcSearchResultInfo>b,.wcSearchResultInfo>p,.wcSearchResultInfo>small{overflow:hidden!important;text-overflow:ellipsis!important}
+/* SECTION 2 — search product image geometry */
+.wcSearchResultImage{position:relative;width:76px;height:76px;min-width:76px;flex:0 0 76px;display:grid;place-items:center;overflow:hidden;box-sizing:border-box}
+.wcSearchResultImage .productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;display:grid;place-items:center;padding:5px;margin:0;overflow:hidden;box-sizing:border-box}
+.wcSearchResultImage .productImageInner img{position:static;display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain;object-position:center;margin:0;padding:0}
+.wcSearchResultInfo{min-width:0;overflow:hidden}
+.wcSearchResultInfo>b,.wcSearchResultInfo>p,.wcSearchResultInfo>small{overflow:hidden;text-overflow:ellipsis}
 @media(max-width:850px){
- .wcSearchResultImage{width:68px!important;height:68px!important;min-width:68px!important;max-width:68px!important;min-height:68px!important;max-height:68px!important}
+ .wcSearchResultImage{width:68px;height:68px;min-width:68px;flex-basis:68px}
 }
 @media(max-width:700px){
- .wcSearchExperience{z-index:200!important;overflow:visible!important}
- .wcSearchResult{min-height:84px!important}
- .wcSearchResultImage{width:62px!important;height:62px!important;min-width:62px!important;max-width:62px!important;min-height:62px!important;max-height:62px!important}
- .wcSearchResultImage .productImageInner{padding:4px!important}
+ .wcSearchResultImage{width:62px;height:62px;min-width:62px;flex-basis:62px}
+ .wcSearchResultImage .productImageInner{padding:4px}
 }
