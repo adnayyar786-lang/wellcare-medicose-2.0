@@ -111,14 +111,9 @@
 
 /* SECTION 2 — homepage product media geometry */
 .wcHome .wcProductCard{position:relative;min-width:0;overflow:hidden}
-.wcHome .wcProductMedia{position:relative;isolation:isolate;width:100%;aspect-ratio:1.2/1;min-width:0;min-height:0;overflow:hidden;border-radius:12px;box-sizing:border-box}
-.wcHome .wcProductMedia>.productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;padding:10px;display:grid;place-items:center;overflow:hidden;box-sizing:border-box}
-.wcHome .wcProductMedia>.productImageInner img{position:static;display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;margin:0}
-.wcHome .wcSuggestionImage>.productImageInner,.wcHome .wcVetProducts article>div>.productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;padding:5px;display:grid;place-items:center;overflow:hidden;box-sizing:border-box}
-.wcHome .wcSuggestionImage>.productImageInner img,.wcHome .wcVetProducts article>div>.productImageInner img{position:static;display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
-@media(max-width:700px){
- .wcHome .wcProductMedia{aspect-ratio:1.2/1}
-}
-@media(max-width:390px){
- .wcHome .wcProductMedia{aspect-ratio:1.18/1}
-}
+.wcHome .wcProductMedia{position:relative;isolation:isolate;width:100%;aspect-ratio:1.2/1;min-width:0;min-height:0;overflow:hidden;border-radius:12px;box-sizing:border-box;--product-image-padding:10px}
+.wcHome .wcSuggestionImage,.wcHome .wcVetProducts article>div{position:relative;min-width:0;min-height:0;overflow:hidden;display:grid;place-items:center;box-sizing:border-box;--product-image-padding:5px}
+.wcHome .wcSuggestionImage{width:55px;height:55px}
+.wcHome .wcVetProducts article>div{width:100%;height:115px}
+@media(max-width:700px){.wcHome .wcProductMedia{aspect-ratio:1.2/1}}
+@media(max-width:390px){.wcHome .wcProductMedia{aspect-ratio:1.18/1}}
