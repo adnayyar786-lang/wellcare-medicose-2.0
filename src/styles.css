@@ -315,10 +315,6 @@ header .top{position:relative;z-index:60;min-height:70px}
 }
 /* Keep customer overlays above every header/product layer */
 .drawerBackdrop{z-index:9990!important}.sideDrawer{z-index:10000!important}.panelOverlay{z-index:11000!important}.mobileBottom{z-index:9000!important}
-.productImageInner:not(:has(img)){
-  font-size:46px!important;
-  line-height:1!important;
-}
 .product{
   min-width:0!important;
   overflow:hidden!important;
@@ -1214,20 +1210,19 @@ header .voiceBtn,header .cameraBtn{background:#edf8f4!important;border:1px solid
 
 /* SECTION 2 — canonical product-card/image system */
 .product,.categoryProductCard,.veterinaryProductCard{min-width:0;box-sizing:border-box}
-.productImg{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:4/3;min-width:0;min-height:0;margin:0 0 12px;padding:0;border:1px solid #dfe9e4;border-radius:14px;overflow:hidden;box-sizing:border-box;background:linear-gradient(145deg,#f5faf8,#f1f7fb);line-height:0;font-size:0;--product-image-padding:8px}
 .productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;display:grid;place-items:center;overflow:hidden;padding:var(--product-image-padding,8px);box-sizing:border-box}
 .productImageInner img{display:block;position:static;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain;object-position:center;margin:0;padding:0;border:0;outline:0}
 .productImageInner img[src=""]{display:none}
+.productImageInner[data-image-state="fallback"]{font-size:0;line-height:1}
+.productImageInner[data-image-state="fallback"] .productImageFallback,.productImageInner[data-image-state="fallback"] .categoryImageFallback{width:46px;height:46px;min-width:46px;min-height:46px;flex:0 0 46px}
 .productImageFallback,.categoryImageFallback{width:46px;height:46px;min-width:46px;min-height:46px;flex:0 0 46px;border-radius:14px;display:grid;place-items:center;color:#087a5e;background:#edf7f3;border:1px solid #d7e8e0}
 .categoryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex:0 0 64px;border-radius:11px;background:#f1f7f4;display:grid;place-items:center;overflow:hidden;box-sizing:border-box;--product-image-padding:5px}
 .dedicatedSectionPage .categoryProductImage{width:68px;height:68px;min-width:68px;min-height:68px;flex-basis:68px}
-.veterinaryProductImage{width:78px;height:78px;min-width:78px;min-height:78px;flex:0 0 78px;display:grid;place-items:center;border-radius:13px;background:#f0f7f4;overflow:hidden;box-sizing:border-box;--product-image-padding:5px}
-.productThumb{width:64px;height:64px;min-width:64px;min-height:64px;flex:0 0 64px;display:grid;place-items:center;padding:5px;border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff;box-sizing:border-box;--product-image-padding:2px}
+.productThumb{width:64px;height:64px;min-width:64px;min-height:64px;flex:0 0 64px;display:grid;place-items:center;padding:5px;border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff;box-sizing:border-box;}
 .productThumb.active{border:2px solid #0b7a5b}
 .detailHeroImage .productImageInner{--product-image-padding:0;background:transparent}
-@media(max-width:760px){.dedicatedSectionPage .categoryProductImage{width:68px;height:68px;min-width:68px;min-height:68px;flex-basis:68px}.veterinaryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex-basis:64px}.productThumb{width:56px;height:56px;min-width:56px;min-height:56px;flex-basis:56px}}
-@media(max-width:700px){.productImg{margin-bottom:10px}.categoryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex-basis:64px}}
-@media(max-width:390px){.productImg{margin-bottom:9px}}
+@media(max-width:760px){.dedicatedSectionPage .categoryProductImage{width:68px;height:68px;min-width:68px;min-height:68px;flex-basis:68px}.productThumb{width:56px;height:56px;min-width:56px;min-height:56px;flex-basis:56px}}
+@media(max-width:700px){.categoryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex-basis:64px}}
 
 /* SECTION 2 — canonical product-detail/gallery image frames */
 
