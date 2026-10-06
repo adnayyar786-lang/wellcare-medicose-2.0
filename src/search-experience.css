@@ -24,5 +24,4 @@
 /* SECTION 2 — search product image responsive geometry */
 .wcSearchResultInfo{min-width:0;overflow:hidden}
 .wcSearchResultInfo>b,.wcSearchResultInfo>p,.wcSearchResultInfo>small{overflow:hidden;text-overflow:ellipsis}
-@media(max-width:850px){.wcSearchResultImage{width:68px;height:68px;min-width:68px;flex-basis:68px}}
 @media(max-width:700px){.wcSearchResultImage{width:62px;height:62px;min-width:62px;flex-basis:62px;--product-image-padding:4px}}
