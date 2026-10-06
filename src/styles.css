@@ -1230,41 +1230,25 @@ header .voiceBtn,header .cameraBtn{background:#edf8f4!important;border:1px solid
 .shopMonogram>strong,.shopMonogram>small,.diagnosticSlider .diagnosticMonogram>strong,.diagnosticSlider .diagnosticMonogram>small{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.shopMonogram>strong,.diagnosticSlider .diagnosticMonogram>strong{font-size:11px;line-height:1.15;color:#17372e}.shopMonogram>small,.diagnosticSlider .diagnosticMonogram>small{font-size:8px;line-height:1.1;color:#087a5e;font-weight:850}.diagnosticSlider .diagnosticMonogram>small{color:#a66a18}.shopMonogram:active,.diagnosticSlider .diagnosticMonogram:active{transform:scale(.985)}
 @media(max-width:700px){.shopSlider,.diagnosticSlider{gap:9px;padding:9px 10px}.shopSliderTitle,.diagnosticSliderTitle{flex-basis:76px}.shopMonogram,.diagnosticSlider .diagnosticMonogram{flex-basis:clamp(128px,42vw,142px);width:clamp(128px,42vw,142px);height:70px;grid-template-columns:38px minmax(0,1fr);column-gap:8px;padding:9px 10px;border-radius:15px}.shopMonogram>span,.diagnosticSlider .diagnosticMonogram>span{width:38px;height:38px;flex-basis:38px;border-radius:11px;font-size:21px}.shopMonogram>strong,.diagnosticSlider .diagnosticMonogram>strong{font-size:10px}.shopMonogram>small,.diagnosticSlider .diagnosticMonogram>small{font-size:7px}}
 
-/* SECTION 2 — canonical product-card/image geometry */
+/* SECTION 2 — canonical product-card/image system */
 .product,.categoryProductCard,.veterinaryProductCard{min-width:0;box-sizing:border-box}
-.productImg{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:4/3;min-height:0;margin:0 0 13px;padding:0;border:1px solid #dfe9e4;border-radius:14px;overflow:hidden;box-sizing:border-box;background:linear-gradient(145deg,#f5faf8,#f1f7fb);line-height:0;font-size:0}
-.productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;display:grid;place-items:center;overflow:hidden;padding:8px;box-sizing:border-box;contain:layout paint}
+.productImg{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:4/3;min-width:0;min-height:0;margin:0 0 12px;padding:0;border:1px solid #dfe9e4;border-radius:14px;overflow:hidden;box-sizing:border-box;background:linear-gradient(145deg,#f5faf8,#f1f7fb);line-height:0;font-size:0;--product-image-padding:8px}
+.productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;display:grid;place-items:center;overflow:hidden;padding:var(--product-image-padding,8px);box-sizing:border-box}
 .productImageInner img{display:block;position:static;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain;object-position:center;margin:0;padding:0;border:0;outline:0}
 .productImageInner img[src=""]{display:none}
-.productImageFallback,.categoryImageFallback{width:46px;height:46px;flex:0 0 46px;border-radius:14px;display:grid;place-items:center;color:#087a5e;background:#edf7f3;border:1px solid #d7e8e0}
-.categoryProductImage{width:64px;height:64px;flex:0 0 64px;border-radius:11px;background:#f1f7f4;display:grid;place-items:center;overflow:hidden;box-sizing:border-box}
-.categoryProductImage .productImageInner,.veterinaryFeaturedImage .productImageInner{width:100%;height:100%;min-width:0;min-height:0}
-.dedicatedSectionPage .categoryProductImage{width:68px;height:68px;flex-basis:68px;border-radius:13px}
-.veterinaryProductImage{width:78px;height:78px;flex:0 0 78px;display:grid;place-items:center;border-radius:13px;background:#f0f7f4;overflow:hidden;box-sizing:border-box}
-.veterinaryProductImage .productImageInner{width:100%;height:100%;padding:5px}
-.productThumb{width:64px;height:64px;flex:0 0 64px;display:grid;place-items:center;padding:5px;border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff;box-sizing:border-box}
+.productImageFallback,.categoryImageFallback{width:46px;height:46px;min-width:46px;min-height:46px;flex:0 0 46px;border-radius:14px;display:grid;place-items:center;color:#087a5e;background:#edf7f3;border:1px solid #d7e8e0}
+.categoryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex:0 0 64px;border-radius:11px;background:#f1f7f4;display:grid;place-items:center;overflow:hidden;box-sizing:border-box;--product-image-padding:5px}
+.dedicatedSectionPage .categoryProductImage{width:68px;height:68px;min-width:68px;min-height:68px;flex-basis:68px}
+.veterinaryProductImage{width:78px;height:78px;min-width:78px;min-height:78px;flex:0 0 78px;display:grid;place-items:center;border-radius:13px;background:#f0f7f4;overflow:hidden;box-sizing:border-box;--product-image-padding:5px}
+.productThumb{width:64px;height:64px;min-width:64px;min-height:64px;flex:0 0 64px;display:grid;place-items:center;padding:5px;border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff;box-sizing:border-box;--product-image-padding:2px}
 .productThumb.active{border:2px solid #0b7a5b}
-.productThumb img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;border-radius:8px}
-
-
-.detailHeroImage .productImageInner{background:linear-gradient(145deg,#f4f9f7,#f2f7fb)}
-@media(max-width:760px){
- .dedicatedSectionPage .categoryProductImage{width:68px;height:68px;flex-basis:68px}
- .veterinaryProductImage{width:64px;height:64px;flex-basis:64px}
- .productThumb{width:56px;height:56px;flex-basis:56px}
- 
-}
-@media(max-width:700px){
- .productImg{margin-bottom:11px}
- .categoryProductImage{width:64px;height:64px;flex-basis:64px}
- 
-}
-@media(max-width:390px){
- .productImg{margin-bottom:10px}
- 
-}
+.detailHeroImage .productImageInner{--product-image-padding:0;background:transparent}
+@media(max-width:760px){.dedicatedSectionPage .categoryProductImage{width:68px;height:68px;min-width:68px;min-height:68px;flex-basis:68px}.veterinaryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex-basis:64px}.productThumb{width:56px;height:56px;min-width:56px;min-height:56px;flex-basis:56px}}
+@media(max-width:700px){.productImg{margin-bottom:10px}.categoryProductImage{width:64px;height:64px;min-width:64px;min-height:64px;flex-basis:64px}}
+@media(max-width:390px){.productImg{margin-bottom:9px}}
 
 /* SECTION 2 — canonical product-detail/gallery image frames */
+
 .productDetailPanel .detailHeroImage{position:relative;width:100%;aspect-ratio:1/1;min-width:0;min-height:300px;padding:18px;display:grid;place-items:center;overflow:hidden;box-sizing:border-box;border-radius:20px;background:linear-gradient(145deg,#f4f9f7,#f2f7fb);border:1px solid #dfe9e4}
 .productDetailPanel .detailHeroImage .productImageInner{position:relative;width:100%;height:100%;min-width:0;min-height:0;padding:0;display:grid;place-items:center;overflow:hidden;box-sizing:border-box;background:transparent}
 .productDetailPanel .detailHeroImage .productImageInner img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;margin:0;padding:0}
