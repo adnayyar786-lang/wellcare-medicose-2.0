@@ -1,6 +1,6 @@
 /* CF BUILD TRIGGER: invalid newline escape fixed; keep homepage isolated. */
 import React,{useEffect,useMemo,useRef,useState}from"react";
-import{ArrowRight,ChevronLeft,ChevronRight,Heart,Plus,ShieldCheck,Truck,Upload}from"lucide-react";
+import{ArrowRight,ChevronRight,Heart,Plus,ShieldCheck,Truck,Upload}from"lucide-react";
 
 const HEROES=[
  {eyebrow:"WELLCARE MEDICOSE",title:"Trusted healthcare,\nright at your doorstep.",copy:"Shop medicines, wellness essentials and pet care from your selected Wellcare store.",cta:"Shop Medicines",tone:"mint",icon:"💊"},
