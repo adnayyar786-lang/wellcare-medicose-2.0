@@ -1342,3 +1342,30 @@ header .voiceBtn,header .cameraBtn{background:#edf8f4!important;border:1px solid
 .detailHeroImage .productImageInner{background:linear-gradient(145deg,#f4f9f7,#f2f7fb)!important}
 .productGalleryHero>img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
 .productThumb img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+
+/* HOMEPAGE ROUTE AUDIT — MEDICINE CARDS, FIXED PURCHASE BAR & SECTION HIGHLIGHTS */
+.dedicatedSectionPage .categoryProductCard{grid-template-columns:72px minmax(0,1fr) 18px!important;min-height:150px!important;padding:12px!important;align-items:center!important}
+.dedicatedSectionPage .categoryProductImage{width:72px!important;height:72px!important;border-radius:13px!important}
+.dedicatedSectionPage .categoryProductInfo{min-width:0!important;display:flex!important;flex-direction:column!important;gap:5px!important}
+.dedicatedSectionPage .categoryProductInfo>b{font-size:14px!important;line-height:1.3!important;color:#183b31!important}
+.dedicatedSectionPage .categoryProductInfo>span{font-size:11px!important;line-height:1.4!important;color:#667970!important;white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+.categoryProductPrice{display:flex!important;align-items:center!important;gap:7px!important;margin-top:2px!important}
+.categoryProductPrice strong{font-size:16px!important;color:#087f4d!important}
+.categoryProductPrice del{font-size:10px!important;color:#89968f!important}
+.categoryProductPrice em{font-style:normal!important;font-size:9px!important;font-weight:900!important;padding:3px 6px!important;border-radius:6px!important;background:#fff0ed!important;color:#b54b3d!important}
+.categoryProductStock{font-size:9px!important;color:#198754!important;font-weight:800!important;white-space:nowrap!important}
+.productDetailPanel .detailSection h3{display:flex!important;align-items:center!important;gap:9px!important;font-size:18px!important;font-weight:900!important;color:#123d31!important;padding:9px 12px!important;margin:0 0 13px!important;border-left:4px solid #087f4d!important;border-radius:0 10px 10px 0!important;background:linear-gradient(90deg,#edf8f3 0%,#f8fbfa 72%,transparent 100%)!important}
+.productDetailPanel .detailSectionHead h3{background:none!important;border-left:0!important;padding:0!important;margin:0 0 4px!important}
+.productDetailPanel .detailSectionHead{padding:8px 0 4px!important;border-bottom:1px solid #dce9e3!important;margin-bottom:12px!important}
+.stickyPurchaseDesktop{position:fixed!important;left:0!important;right:0!important;bottom:0!important;z-index:10050!important;display:flex!important;gap:10px!important;align-items:center!important;justify-content:center!important;padding:10px max(16px,4vw) calc(10px + env(safe-area-inset-bottom))!important;background:rgba(255,255,255,.98)!important;border-top:1px solid #d7e5df!important;box-shadow:0 -10px 30px rgba(12,60,42,.14)!important;backdrop-filter:blur(12px)!important}
+.stickyPurchaseDesktop button{min-height:48px!important;border-radius:13px!important;font-weight:900!important;max-width:520px!important}
+.professionalProductBody{padding-bottom:92px!important}
+@media(max-width:760px){
+ .stickyPurchaseDesktop{display:none!important}
+ .professionalProductBody{padding-bottom:112px!important}
+ .dedicatedSectionPage .categoryProductCard{grid-template-columns:66px minmax(0,1fr) 16px!important;min-height:136px!important;padding:10px!important}
+ .dedicatedSectionPage .categoryProductImage{width:66px!important;height:66px!important}
+ .dedicatedSectionPage .categoryProductInfo>b{font-size:13px!important}
+ .dedicatedSectionPage .categoryProductInfo>span{font-size:10px!important}
+ .categoryProductPrice strong{font-size:15px!important}
+}
