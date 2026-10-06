@@ -125,8 +125,8 @@ const shown=useMemo(()=>products.filter(p=>(!cat||p.c===cat)&&(!search||((p.n+" 
    <div className="professionalProductBody">
     <div className="productGalleryBlock">
      <div className="productGalleryLayout">
-      {galleryImages.length>1&&<div className="productThumbRail">{galleryImages.slice(0,6).map((src,i)=><button type="button" className={`productThumb ${i===galleryIndex?"active":""}`} key={src+i} onClick={()=>setGalleryIndex(i)} aria-label={"View "+(i+1)}><img src={src} alt={detail.n+" view "+(i+1)}/></button>)}</div>}
-      <div className="detailImage detailHeroImage productGalleryHero">{imageSrc?<img src={imageSrc} alt={detail.n}/>:<ProductImage product={detail} eager/>}</div>
+      {galleryImages.length>1&&<div className="productThumbRail">{galleryImages.slice(0,6).map((src,i)=><button type="button" className={`productThumb ${i===galleryIndex?"active":""}`} key={src+i} onClick={()=>setGalleryIndex(i)} aria-label={"View "+(i+1)}><img src={src} alt={detail.n+" view "+(i+1)} loading="lazy" decoding="async" onError={e=>{e.currentTarget.style.display="none"}}/></button>)}</div>}
+      <div className="detailImage detailHeroImage productGalleryHero">{imageSrc?<img src={imageSrc} alt={detail.n} decoding="async" onError={e=>{e.currentTarget.style.display="none"}}/>:<ProductImage product={detail} eager/>}</div>
      </div>
      <div className="productGalleryMeta"><span>✓ Genuine product</span><span>↻ Easy reorder</span><span>⚕ Pharmacist checked</span></div>
     </div>
