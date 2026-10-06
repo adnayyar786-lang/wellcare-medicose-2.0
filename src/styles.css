@@ -1369,3 +1369,32 @@ header .voiceBtn,header .cameraBtn{background:#edf8f4!important;border:1px solid
  .dedicatedSectionPage .categoryProductInfo>span{font-size:10px!important}
  .categoryProductPrice strong{font-size:15px!important}
 }
+
+/* MEDICINE INTERFACE — FINAL FIX: visible info + true viewport-sticky purchase + highlighted sections */
+.dedicatedSectionPage .categoryProductCard{background:#fff!important;border:1px solid #dfeae4!important;box-shadow:0 4px 16px rgba(18,62,48,.055)!important}
+.dedicatedSectionPage .categoryProductInfo{overflow:hidden!important}
+.dedicatedSectionPage .categoryProductInfo>small:first-child{font-size:10px!important;font-weight:800!important;color:#087a5e!important;text-transform:none!important}
+.dedicatedSectionPage .categoryProductInfo>b{display:block!important;font-size:15px!important;line-height:1.35!important;font-weight:900!important;color:#163c31!important;white-space:normal!important;overflow-wrap:anywhere!important}
+.dedicatedSectionPage .categoryProductDescription{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-height:30px!important;font-size:11px!important;line-height:1.42!important;color:#667970!important}
+.dedicatedSectionPage .categoryProductPrice{min-height:24px!important}
+.dedicatedSectionPage .categoryProductPrice strong{font-size:17px!important;font-weight:950!important;color:#087a5e!important}
+.dedicatedSectionPage .categoryProductPrice del{font-size:11px!important;color:#89968f!important}
+.dedicatedSectionPage .categoryProductStock{font-size:9px!important;color:#198754!important;font-weight:850!important}
+.productDetailOverlay{z-index:12000!important;isolation:isolate!important}
+.productDetailPanel{position:relative!important;isolation:isolate!important;padding-bottom:0!important}
+.professionalProductDetail .professionalProductBody{padding-bottom:110px!important}
+.stickyPurchaseDesktop{position:fixed!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;z-index:2147483000!important;pointer-events:auto!important}
+.mobilePurchaseBar{position:fixed!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;z-index:2147483000!important;pointer-events:auto!important}
+.productDetailPanel .detailSection h3,.productDetailPanel .detailSectionHead h3{position:relative!important;display:flex!important;align-items:center!important;min-height:40px!important;margin-top:0!important;padding:9px 14px!important;border-left:5px solid #087a5e!important;border-radius:0 12px 12px 0!important;background:linear-gradient(90deg,#e8f7f0 0%,#f5faf8 68%,rgba(245,250,248,0) 100%)!important;color:#123d31!important;font-size:18px!important;font-weight:950!important;box-shadow:inset 0 -1px 0 #d6e7df!important}
+.productDetailPanel .detailSectionHead{padding-top:4px!important}
+.productDetailPanel .detailSectionHead small{display:block!important;margin-bottom:5px!important;color:#087a5e!important;font-size:9px!important;font-weight:950!important;letter-spacing:.11em!important}
+.productDetailPanel .productHighlights h3:before,.productDetailPanel .productDescription h3:before,.productDetailPanel .relatedSuggestions h3:before,.productDetailPanel .boughtTogether h3:before{content:"";width:7px;height:7px;border-radius:50%;background:#0d9b8a;flex:0 0 7px;box-shadow:0 0 0 4px #d8f1e8}
+@media(max-width:760px){
+ .dedicatedSectionPage .categoryProductCard{grid-template-columns:68px minmax(0,1fr) 15px!important;min-height:142px!important;padding:11px!important}
+ .dedicatedSectionPage .categoryProductImage{width:68px!important;height:68px!important}
+ .dedicatedSectionPage .categoryProductInfo>b{font-size:13px!important}
+ .dedicatedSectionPage .categoryProductDescription{font-size:10px!important;min-height:28px!important}
+ .dedicatedSectionPage .categoryProductPrice strong{font-size:15px!important}
+ .professionalProductDetail .professionalProductBody{padding-bottom:122px!important}
+ .mobilePurchaseBar{min-height:68px!important;padding-bottom:calc(9px + env(safe-area-inset-bottom))!important}
+}
