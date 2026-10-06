@@ -1398,3 +1398,20 @@ header .voiceBtn,header .cameraBtn{background:#edf8f4!important;border:1px solid
  .professionalProductDetail .professionalProductBody{padding-bottom:122px!important}
  .mobilePurchaseBar{min-height:68px!important;padding-bottom:calc(9px + env(safe-area-inset-bottom))!important}
 }
+
+/* MEDICINE PRICE ROW — prevent price/stock/arrow overlap */
+.dedicatedSectionPage .categoryProductCard{align-items:stretch!important;overflow:hidden!important}
+.dedicatedSectionPage .categoryProductInfo{min-width:0!important;min-height:0!important;overflow:hidden!important;gap:6px!important;justify-content:center!important}
+.dedicatedSectionPage .categoryProductPrice{display:flex!important;align-items:center!important;flex-wrap:wrap!important;min-width:0!important;min-height:25px!important;gap:6px!important;margin:1px 0 0!important;line-height:1!important;position:relative!important;z-index:2!important}
+.dedicatedSectionPage .categoryProductPrice strong{display:block!important;line-height:1.15!important;white-space:nowrap!important;flex:0 0 auto!important}
+.dedicatedSectionPage .categoryProductPrice del{display:block!important;line-height:1.15!important;white-space:nowrap!important;flex:0 0 auto!important}
+.dedicatedSectionPage .categoryProductPrice em{display:inline-flex!important;align-items:center!important;line-height:1!important;white-space:nowrap!important;flex:0 0 auto!important}
+.dedicatedSectionPage .categoryProductStock{display:block!important;max-width:100%!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;line-height:1.2!important;margin-top:0!important}
+.dedicatedSectionPage .categoryProductCard>svg{align-self:center!important;flex:0 0 auto!important;position:relative!important;z-index:3!important}
+@media(max-width:760px){
+ .dedicatedSectionPage .categoryProductCard{min-height:148px!important;align-items:stretch!important}
+ .dedicatedSectionPage .categoryProductInfo{gap:5px!important}
+ .dedicatedSectionPage .categoryProductPrice{min-height:24px!important;gap:5px!important}
+ .dedicatedSectionPage .categoryProductPrice strong{font-size:15px!important}
+ .dedicatedSectionPage .categoryProductStock{font-size:8.5px!important}
+}
