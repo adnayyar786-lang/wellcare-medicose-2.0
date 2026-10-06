@@ -1,5 +1,5 @@
 /* CF BUILD TRIGGER: invalid newline escape fixed; keep homepage isolated. */
-import React,{useEffect,useMemo,useState}from"react";
+import React,{useEffect,useMemo,useRef,useState}from"react";
 import{ArrowRight,ChevronLeft,ChevronRight,Heart,Plus,ShieldCheck,Truck,Upload}from"lucide-react";
 
 const HEROES=[
@@ -51,7 +51,10 @@ function MedicineDetails({product,allProducts,imageRenderer,onBack,onSelect,onAd
 export default function HomeExperience({products,shown,branch,setCat,setSearch,setRx,setPanel,setDetail,add,toggleWish,wishlist,imageRenderer}){
  const [selected,setSelected]=useState(null);
  const [slide,setSlide]=useState(0);
- useEffect(()=>{const t=setInterval(()=>setSlide(x=>(x+1)%HEROES.length),5500);return()=>clearInterval(t)},[]);
+ const heroTimer=useRef(null);
+ const stopHeroTimer=()=>{if(heroTimer.current){clearTimeout(heroTimer.current);heroTimer.current=null}};
+ const resetHeroTimer=()=>{stopHeroTimer();heroTimer.current=setTimeout(()=>setSlide(x=>(x+1)%HEROES.length),5500)};
+ useEffect(()=>{resetHeroTimer();return stopHeroTimer},[slide]);
  useEffect(()=>{const h=e=>{if(e.detail){setPanel(null);setSelected(null);setDetail(e.detail)}};window.addEventListener("wellcare:open-product",h);return()=>window.removeEventListener("wellcare:open-product",h)},[setPanel,setDetail]);
  const human=useMemo(()=>products.filter(p=>!/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())),[products]);
  const popular=(shown.length?shown:human).slice(0,10);
@@ -60,7 +63,7 @@ export default function HomeExperience({products,shown,branch,setCat,setSearch,s
  const veterinary=products.filter(p=>/(pet|vet|dog|cat|puppy|kitten|animal|veterinary)/i.test((p.n+" "+p.b+" "+p.c).toLowerCase())).slice(0,8);
  const goCategory=x=>{setCat("");setSearch("");setSelected(null);setPanel("category:"+x)}; const openAllMedicines=()=>{setCat("");setSearch("");setSelected(null);setPanel("category:Medicines")}; const openProduct=p=>{setSelected(null);setPanel(null);setDetail(p)};
  return <div className="wcHome"><div className="wcHomeContent">
-  <section className={"wcHero wcHero-"+HEROES[slide].tone}>
+  <section className={"wcHero wcHero-"+HEROES[slide].tone} onMouseEnter={stopHeroTimer} onMouseLeave={resetHeroTimer} onTouchStart={stopHeroTimer} onTouchEnd={resetHeroTimer}>
    <div className="wcHeroCopy"><div className="wcHeroTopline"><span className="wcHeroLiveDot"/> <span>LOCAL PHARMACY • {branch?"STORE SELECTED":"SELECT YOUR STORE"}</span></div><span className="wcEyebrow">{HEROES[slide].eyebrow}</span><h1>{HEROES[slide].title.split("\n").map((x,i)=><React.Fragment key={i}>{i>0&&<br/>}{x}</React.Fragment>)}</h1><p>{HEROES[slide].copy}</p><div className="wcHeroPromise"><span>✓ Genuine pharmacy stock</span><span>✓ Fast local fulfilment</span><span>✓ Pickup or home delivery</span></div><div className="wcHeroActions"><button className="wcPrimary" onClick={()=>slide===2?setPanel("categories"):setPanel("category:Medicines")}>{HEROES[slide].cta}<ArrowRight size={17}/></button><button className="wcSecondary" onClick={()=>setRx(true)}><Upload size={16}/> Prescription</button></div><div className="wcHeroTrust"><span><ShieldCheck size={15}/> Genuine medicines</span><span><Truck size={15}/> Pickup + delivery</span></div></div>
    <div className="wcHeroVisual"><div className="wcHeroGlow"/><div className="wcHeroBrand"><span>WC</span><b>WELLCARE</b><small>MEDICOSE · HEALTHCARE</small></div><div className="wcHeroProduct wcHeroProductA">{popular[0]&&<><div>{imageRenderer(popular[0])}</div><b>{popular[0].n}</b><small>₹{popular[0].p}</small></>}</div><div className="wcHeroProduct wcHeroProductB">{popular[1]&&<><div>{imageRenderer(popular[1])}</div><b>{popular[1].n}</b><small>₹{popular[1].p}</small></>}</div><div className="wcHeroFloat wcFloatA">✓ Genuine pharmacy stock</div><div className="wcHeroFloat wcFloatB">⚡ Fast local fulfilment</div></div>
    <div className="wcHeroDots">{HEROES.map((_,i)=><button key={i} className={i===slide?"active":""} onClick={()=>setSlide(i)} aria-label={"Slide "+(i+1)}/>)}</div>
